@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QNX 8.0 Mobile Companion Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0f172a;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .header {
+            background: #1e293b;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #334155;
+        }
+        .header h2 { margin: 0; color: #38bdf8; }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .card {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #334155;
+        }
+        .value {
+            font-size: 36px;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #f8fafc;
+        }
+        .label { color: #94a3b8; font-size: 14px; }
+        .status-box {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: bold;
+            max-width: 370px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .NORMAL { background-color: #065f46; color: #a7f3d0; }
+        .WARNING { background-color: #92400e; color: #fde68a; }
+        .CRITICAL { background-color: #991b1b; color: #fecaca; }
+        input {
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            width: 60%;
+            margin-bottom: 15px;
+        }
+        button {
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: none;
+            background: #38bdf8;
+            color: #0f172a;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h2>QNX 8.0 Smart Companion</h2>
+        <p style="font-size: 12px; color: #94a3b8;">Real-Time Mobile & RTOS Bridge</p>
+    </div>
+
+    <div>
+        <input type="text" id="serverIp" value="http://localhost:8080/telemetry" placeholder="Enter QNX IP URL">
+        <button onclick="startMonitoring()">Connect</button>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <div class="label">VEHICLE SPEED</div>
+            <div class="value" id="speed">-- km/h</div>
+        </div>
+        <div class="card">
+            <div class="label">ENGINE TEMPERATURE</div>
+            <div class="value" id="temp">-- °C</div>
+        </div>
+        <div class="card">
+            <div class="label">BATTERY VOLTAGE</div>
+            <div class="value" id="battery">-- V</div>
+        </div>
+    </div>
+
+    <div id="statusBox" class="status-box NORMAL">
+        Waiting for QNX 8.0 connection...
+    </div>
+
+    <script>
+        let intervalId = null;
+
+        function startMonitoring() {
+            if (intervalId) clearInterval(intervalId);
+            fetchData();
+            intervalId = setInterval(fetchData, 2000); // हर 2 सेकंड में डेटा अपडेट होगा
+        }
+
+        async function fetchData() {
+            const url = document.getElementById('serverIp').value;
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+
+                document.getElementById('speed').innerText = data.speed_kmh + " km/h";
+                document.getElementById('temp').innerText = data.engine_temp_c + " °C";
+                document.getElementById('battery').innerText = data.battery_v + " V";
+
+                const statusBox = document.getElementById('statusBox');
+                statusBox.className = "status-box " + data.status;
+                statusBox.innerText = `[${data.os}] ${data.message}`;
+            } catch (error) {
+                const statusBox = document.getElementById('statusBox');
+                statusBox.className = "status-box CRITICAL";
+                statusBox.innerText = "Connection Error: Make sure QNX server is running.";
+            }
+        }
+    </script>
+</body>
+</html>
