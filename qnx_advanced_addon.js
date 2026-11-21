@@ -177,3 +177,89 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     }
 });
+
+// --- CYBER-DEFENSE & OTA HYPERVISOR UPGRADE ---
+document.addEventListener("DOMContentLoaded", () => {
+    const cyberPanel = document.createElement("div");
+    cyberPanel.style.cssText = "width:92%;max-width:800px;margin:15px auto;padding:14px;background:#0f172a;border:1px solid #334155;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;";
+    cyberPanel.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:8px;">
+            <strong style="color:#10b981;">🛡️ QNX HYPERVISOR CYBER-SHIELD & OTA MANAGER</strong>
+            <div>
+                <button id="btn-cyber" style="background:#9333ea;color:white;border:none;padding:5px 10px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:6px;">👾 SIMULATE CAN SPOOF</button>
+                <button id="btn-ota" style="background:#0284c7;color:white;border:none;padding:5px 10px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">☁️ OTA LIVE PATCH</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+            <div style="flex:1;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;text-align:left;font-size:11px;">
+                <div style="color:#94a3b8;margin-bottom:6px;"><b>🔐 CRYPTO-CAN FIREWALL STATUS:</b> <span id="fw-state" style="color:#4ade80;">VERIFIED (HMAC-SHA256)</span></div>
+                <div style="color:#94a3b8;margin-bottom:6px;"><b>📦 BLOCKED SPOOF FRAMES:</b> <span id="spoof-cnt" style="color:#38bdf8;">0</span></div>
+                <div style="color:#94a3b8;"><b>💿 KERNEL FIRMWARE:</b> <span id="ota-ver" style="color:#facc15;">QNX-SDP-8.0.1-REL</span></div>
+            </div>
+            <canvas id="jitterCanvas" width="260" height="85" style="background:#020617;border:1px solid #1e293b;border-radius:8px;flex:1;min-width:240px;"></canvas>
+        </div>
+    `;
+    document.body.appendChild(cyberPanel);
+
+    // Live Microsecond Jitter Oscilloscope
+    const jCanvas = document.getElementById("jitterCanvas");
+    const jCtx = jCanvas.getContext("2d");
+    const jPoints = Array(40).fill(42);
+    setInterval(() => {
+        jPoints.shift();
+        jPoints.push(35 + Math.random() * 18);
+        jCtx.clearRect(0, 0, jCanvas.width, jCanvas.height);
+        jCtx.strokeStyle = "#10b981"; jCtx.lineWidth = 1.5;
+        jCtx.beginPath();
+        jPoints.forEach((y, i) => {
+            const x = (i / 39) * jCanvas.width;
+            i === 0 ? jCtx.moveTo(x, y) : jCtx.lineTo(x, y);
+        });
+        jCtx.stroke();
+        jCtx.fillStyle = "#64748b"; jCtx.font = "10px monospace";
+        jCtx.fillText("RTOS DETERMINISTIC JITTER (<10us)", 8, 14);
+    }, 150);
+
+    let blockedCount = 0;
+    const logs = document.getElementById("kernel-logs");
+
+    // Cyber Attack Simulation
+    document.getElementById("btn-cyber").onclick = () => {
+        blockedCount += 14;
+        document.getElementById("spoof-cnt").innerText = blockedCount + " PKTS DROPPED";
+        const fw = document.getElementById("fw-state");
+        fw.innerText = "INTRUSION ISOLATED!"; fw.style.color = "#ef4444";
+        const t = new Date().toISOString().split("T").slice(0, -1);
+        if (logs) {
+            logs.innerHTML += `<div style="color:#c084fc;">[${t}] <b>[IDS_SEC]</b> Unauthorized CAN ID 0x7DF blocked! Hypervisor sandbox intact.</div>`;
+            logs.scrollTop = logs.scrollHeight;
+        }
+        if ("speechSynthesis" in window) {
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.speak(new SpeechSynthesisUtterance("Cyber intrusion detected on CAN bus. Malicious packets isolated by QNX Hypervisor."));
+        }
+        setTimeout(() => { fw.innerText = "VERIFIED (HMAC-SHA256)"; fw.style.color = "#4ade80"; }, 4000);
+    };
+
+    // Zero-Downtime OTA Kernel Patching
+    document.getElementById("btn-ota").onclick = () => {
+        const ver = document.getElementById("ota-ver");
+        ver.innerText = "PATCHING LIVE (0ms DOWNTIME)..."; ver.style.color = "#38bdf8";
+        const t = new Date().toISOString().split("T").slice(0, -1);
+        if (logs) {
+            logs.innerHTML += `<div style="color:#38bdf8;">[${t}] <b>[OTA_MGR]</b> Swapping microkernel A/B memory bank...</div>`;
+            logs.scrollTop = logs.scrollHeight;
+        }
+        setTimeout(() => {
+            ver.innerText = "QNX-SDP-8.0.2-SEC-PATCHED"; ver.style.color = "#4ade80";
+            if (logs) {
+                logs.innerHTML += `<div style="color:#4ade80;">[${t}] <b>[OTA_OK]</b> Live firmware upgraded without reboot!</div>`;
+                logs.scrollTop = logs.scrollHeight;
+            }
+            if ("speechSynthesis" in window) {
+                window.speechSynthesis.cancel();
+                window.speechSynthesis.speak(new SpeechSynthesisUtterance("Over the air security patch applied with zero system downtime."));
+            }
+        }, 1200);
+    };
+});
