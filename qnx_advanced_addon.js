@@ -1237,3 +1237,58 @@ document.addEventListener("DOMContentLoaded", () => {
         } else { bs.innerText = "HEPA-14 ACTIVE (CABIN AQI: 14)"; bs.style.color = "#38bdf8"; }
     };
 });
+
+// --- LAYER 19 (HYPERION): AMPHIBIOUS FLOOD-WADE SHIELD & SELF-HEALING GRAPHENE ARMOR ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-flood")) return;
+    const l19 = document.createElement("div");
+    l19.style.cssText = "width:92%;max-width:800px;margin:15px auto 105px auto;padding:14px;background:#0f172a;border:1px solid #0ea5e9;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 50px rgba(14,165,233,0.38);";
+    l19.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#38bdf8;">🔱 LAYER 19 (HYPERION): AMPHIBIOUS FLOOD-WADE & GRAPHENE SELF-HEAL</strong>
+            <div>
+                <button id="btn-flood" style="background:#0284c7;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">🌊 FLOOD WADE MODE</button>
+                <button id="btn-armor" style="background:#4f46e5;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">🛡️ HEAL GRAPHENE</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px;text-align:left;">
+            <div style="flex:1.2;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="margin-bottom:5px;"><b>🌊 MONSOON HYDRO-SEAL:</b> <span id="flood-stat" style="color:#4ade80;">IP69K SEALED (ROAD CLEARANCE)</span></div>
+                <div style="margin-bottom:5px;"><b>🛡️ GRAPHENE SKIN:</b> <span id="armor-stat" style="color:#38bdf8;">INTACT (NANO-POLYMER MATRIX)</span></div>
+                <div><b>👑 FLAGSHIP EDITION:</b> <span style="color:#facc15;">19-LAYER QNX 8.0 HYPERION APEX</span></div>
+            </div>
+            <div style="flex:1;min-width:220px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;text-align:center;">
+                <div style="color:#94a3b8;font-size:10px;margin-bottom:4px;">AMPHIBIOUS CHASSIS TELEMETRY</div>
+                <div style="font-size:14px;font-weight:bold;color:#38bdf8;" id="hydro-val">WADE DEPTH: 0.0m | LIFT: STD</div>
+                <div style="font-size:10px;color:#4ade80;margin-top:4px;">19-LAYER HYPERION STACK VERIFIED</div>
+            </div>
+        </div>`;
+    document.body.appendChild(l19);
+
+    document.querySelectorAll("button").forEach(b => { if (b.innerText.includes("L18")) b.innerText = "⬇️ L19"; });
+
+    const logs = document.getElementById("kernel-logs");
+    let floodOn = false;
+
+    document.getElementById("btn-flood").onclick = () => {
+        floodOn = !floodOn;
+        const fs = document.getElementById("flood-stat"), hv = document.getElementById("hydro-val");
+        if (floodOn) {
+            fs.innerText = "AMPHIBIOUS HYDRO-JET ACTIVE (1.2m WATER)!"; fs.style.color = "#22d3ee";
+            hv.innerText = "LIFT: +180mm | HYDRO-THRUST ON"; hv.style.color = "#facc15";
+            if (logs) { logs.innerHTML += `<div style="color:#38bdf8;">[HYDRO_L19] Deep monsoon water detected! Chassis lifted +180mm & hydro-jets engaged.</div>`; logs.scrollTop = logs.scrollHeight; }
+            if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Amphibious flood wading mode engaged. High voltage battery hermetically sealed.")); }
+        } else {
+            fs.innerText = "IP69K SEALED (ROAD CLEARANCE)"; fs.style.color = "#4ade80";
+            hv.innerText = "WADE DEPTH: 0.0m | LIFT: STD"; hv.style.color = "#38bdf8";
+        }
+    };
+
+    document.getElementById("btn-armor").onclick = () => {
+        const as = document.getElementById("armor-stat");
+        as.innerText = "MICRO-SCRATCH HEALED IN 4.2s!"; as.style.color = "#c084fc";
+        if (logs) { logs.innerHTML += `<div style="color:#818cf8;">[NANO_SKIN] Thermal nano-current restored graphene-polymer clearcoat in 4.2s.</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Self healing graphene body armor restored.")); }
+        setTimeout(() => { as.innerText = "INTACT (NANO-POLYMER MATRIX)"; as.style.color = "#38bdf8"; }, 4200);
+    };
+});
