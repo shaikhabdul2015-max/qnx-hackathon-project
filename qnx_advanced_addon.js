@@ -551,3 +551,68 @@ document.addEventListener("DOMContentLoaded", () => {
         if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Smart city V2I green wave corridor locked.")); }
     };
 });
+
+// --- LAYER 9 (SINGULARITY): DRIVER BIOMETRIC AI, FLEET MESH & ARCHITECTURE BLUEPRINT ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-dms")) return;
+    const l9 = document.createElement("div");
+    l9.style.cssText = "width:92%;max-width:800px;margin:15px auto 45px auto;padding:14px;background:#0f172a;border:1px solid #f43f5e;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 25px rgba(244,63,94,0.22);";
+    l9.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#fb7185;">🧬 DRIVER BIOMETRIC DMS, CLOUD FLEET MESH & BLUEPRINT</strong>
+            <div>
+                <button id="btn-dms" style="background:#e11d48;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">😴 DRIVER FATIGUE</button>
+                <button id="btn-arch" style="background:#0284c7;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">📐 ARCHITECTURE</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px;text-align:left;">
+            <div style="flex:1.2;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="margin-bottom:5px;"><b>💓 DRIVER BIOMETRICS:</b> <span id="dms-stat" style="color:#4ade80;">ALERT | 74 BPM | EYE-TRACK OK</span></div>
+                <div style="margin-bottom:5px;"><b>🌐 CLOUD FLEET MESH:</b> <span style="color:#38bdf8;">42 PEER NODES SYNCED (MUM-PUN CORRIDOR)</span></div>
+                <div><b>🛡️ FAIL-OPERATIONAL:</b> <span id="pullover-stat" style="color:#facc15;">STANDBY (L4 SAFE-STOP READY)</span></div>
+            </div>
+            <div style="flex:1;min-width:220px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;text-align:center;">
+                <div style="color:#64748b;margin-bottom:5px;">SWARM HAZARD MESH STREAM</div>
+                <div style="font-size:11px;color:#34d399;" id="mesh-feed">NODE-19: CLEAR ROAD [0.02s]</div>
+                <div style="font-size:10px;color:#94a3b8;margin-top:4px;">QNX IVY EDGE CLOUD BRIDGE</div>
+            </div>
+        </div>
+        <div id="arch-modal" style="display:none;margin-top:12px;background:#020617;border:1px dashed #38bdf8;border-radius:8px;padding:12px;font-size:11px;text-align:left;color:#cbd5e1;">
+            <b style="color:#38bdf8;">🏗️ QNX 8.0 9-LAYER DETERMINISTIC STACK:</b><br>
+            [HW/Sensors] ➔ [C++ Multi-Threaded RTOS Core & Lockstep] ➔ [Zero-Copy Socket IPC] ➔ [APS 90% Safety Partition & HAM Self-Healing] ➔ [Hypervisor Crypto-CAN & Kyber-1024 PQC] ➔ [AI Vision / DMS / V2X / Cloud Swarm UI]
+        </div>`;
+    document.body.appendChild(l9);
+
+    const meshMsgs = [
+        "NODE-19: CLEAR ROAD [0.02s]",
+        "NODE-07: WET SURFACE AHEAD +2km",
+        "NODE-31: PLATOON SYNC VERIFIED",
+        "NODE-12: GREEN-WAVE RSU LOCKED"
+    ];
+    let mIdx = 0;
+    setInterval(() => {
+        mIdx = (mIdx + 1) % meshMsgs.length;
+        const mf = document.getElementById("mesh-feed");
+        if (mf) mf.innerText = meshMsgs[mIdx];
+    }, 2200);
+
+    const logs = document.getElementById("kernel-logs");
+
+    document.getElementById("btn-dms").onclick = () => {
+        const dms = document.getElementById("dms-stat"), po = document.getElementById("pullover-stat");
+        dms.innerText = "DROWSINESS DETECTED! 112 BPM"; dms.style.color = "#ef4444";
+        po.innerText = "EXECUTING AUTONOMOUS LANE PULLOVER!"; po.style.color = "#f87171";
+        if (logs) { logs.innerHTML += `<div style="color:#fb7185;">[DMS_BIO] Driver micro-sleep detected! Engaging autonomous safe-shoulder pullover.</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Driver fatigue detected. Engaging autonomous safe shoulder pullover.")); }
+        if (typeof window.sendCommand === "function") window.sendCommand("EMERGENCY_STOP");
+        setTimeout(() => {
+            dms.innerText = "ALERT | 74 BPM | EYE-TRACK OK"; dms.style.color = "#4ade80";
+            po.innerText = "STANDBY (L4 SAFE-STOP READY)"; po.style.color = "#facc15";
+        }, 5000);
+    };
+
+    document.getElementById("btn-arch").onclick = () => {
+        const m = document.getElementById("arch-modal");
+        m.style.display = (m.style.display === "none") ? "block" : "none";
+    };
+});
