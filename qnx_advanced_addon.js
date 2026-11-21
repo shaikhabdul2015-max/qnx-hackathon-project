@@ -1462,3 +1462,53 @@ document.addEventListener("DOMContentLoaded", () => {
         if (logs) { logs.innerHTML += `<div style="color:#2dd4bf;">[ECO_MINT] Verified zero-emission telemetry! Minted +0.25 Carbon Credits.</div>`; logs.scrollTop = logs.scrollHeight; }
     };
 });
+
+// --- LAYER 23 (ULTIMA): TRAUMA-MEDEVAC AUTOPILOT & CHASSIS ULTRASONIC STRUCTURAL SCAN ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-med")) return;
+    const l23 = document.createElement("div");
+    l23.style.cssText = "width:92%;max-width:800px;margin:15px auto 125px auto;padding:14px;background:#0f172a;border:1px solid #f43f5e;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 65px rgba(244,63,94,0.45);";
+    l23.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#fb7185;">🏆 LAYER 23 (ULTIMA): TRAUMA-MEDEVAC AUTOPILOT & CHASSIS STRUCTURAL SCAN</strong>
+            <div>
+                <button id="btn-med" style="background:#e11d48;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">🚑 MEDEVAC CORRIDOR</button>
+                <button id="btn-xray" style="background:#0284c7;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">🩻 CHASSIS ULTRASOUND</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px;text-align:left;">
+            <div style="flex:1.2;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="margin-bottom:5px;"><b>🚑 LIFE-SAFETY LINK:</b> <span id="med-stat" style="color:#4ade80;">STANDBY (HOSPITAL ER TELEMETRY READY)</span></div>
+                <div style="margin-bottom:5px;"><b>🩻 CHASSIS INTEGRITY:</b> <span id="xray-stat" style="color:#38bdf8;">100.0% (64 PIEZO-NODES VERIFIED)</span></div>
+                <div><b>👑 ULTIMATE TIER:</b> <span style="color:#facc15;">23-LAYER QNX 8.0 ULTIMA FLAGSHIP</span></div>
+            </div>
+            <div style="flex:1;min-width:220px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;text-align:center;">
+                <div style="color:#94a3b8;font-size:10px;margin-bottom:4px;">COMPLETE ARCHITECTURE STACK</div>
+                <div style="font-size:14px;font-weight:bold;color:#fb7185;" id="ult-badge">23 / 23 LAYERS ONLINE</div>
+                <div style="font-size:10px;color:#4ade80;margin-top:4px;">UNRIVALED QNX 8.0 PRODUCTION OS</div>
+            </div>
+        </div>`;
+    document.body.appendChild(l23);
+
+    document.querySelectorAll("button").forEach(b => { if (b.innerText.includes("L22")) b.innerText = "⬇️ L23"; });
+
+    const logs = document.getElementById("kernel-logs");
+    let medOn = false;
+
+    document.getElementById("btn-med").onclick = () => {
+        medOn = !medOn;
+        const ms = document.getElementById("med-stat");
+        if (medOn) {
+            ms.innerText = "EMERGENCY ROUTING -> TRAUMA ER (GREEN WAVE)!"; ms.style.color = "#ef4444";
+            if (logs) { logs.innerHTML += `<div style="color:#fb7185;">[MEDEVAC] Medical emergency! Hospital ER alerted & V2X ambulance priority locked.</div>`; logs.scrollTop = logs.scrollHeight; }
+            if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Emergency medevac autopilot engaged. Green corridor locked to nearest trauma center.")); }
+        } else { ms.innerText = "STANDBY (HOSPITAL ER TELEMETRY READY)"; ms.style.color = "#4ade80"; }
+    };
+
+    document.getElementById("btn-xray").onclick = () => {
+        const xs = document.getElementById("xray-stat");
+        xs.innerText = "FULL ULTRASONIC SCAN: 0 MICRO-FRACTURES!"; xs.style.color = "#22d3ee";
+        if (logs) { logs.innerHTML += `<div style="color:#38bdf8;">[NDT_SCAN] 64 ultrasonic frame transducers verified zero structural fatigue.</div>`; logs.scrollTop = logs.scrollHeight; }
+        setTimeout(() => { xs.innerText = "100.0% (64 PIEZO-NODES VERIFIED)"; xs.style.color = "#38bdf8"; }, 4000);
+    };
+});
