@@ -945,3 +945,60 @@ document.addEventListener("DOMContentLoaded", () => {
         if (logs) { logs.innerHTML += `<div style="color:#34d399;">[LEDGER] Blackbox flight block sealed with SHA3-512 hash: 0x${h1}...${h2}</div>`; logs.scrollTop = logs.scrollHeight; }
     };
 });
+
+// --- LAYER 14 (AETHER): ACTIVE EM SUSPENSION, ISO 21448 SOTIF ARBITER & FULL SPEC EXPORT ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-susp")) return;
+    const l14 = document.createElement("div");
+    l14.style.cssText = "width:92%;max-width:800px;margin:15px auto 70px auto;padding:14px;background:#0f172a;border:1px solid #10b981;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 38px rgba(16,185,129,0.3);";
+    l14.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#34d399;">💠 LAYER 14 (AETHER): ACTIVE EM-SUSPENSION, SOTIF ARBITER & SPEC</strong>
+            <div>
+                <button id="btn-susp" style="background:#059669;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">〰️ POTHOLE ABSORB</button>
+                <button id="btn-sotif" style="background:#d97706;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">⚖️ SOTIF ARBITER</button>
+                <button id="btn-spec" style="background:#2563eb;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">📊 14-LAYER SPEC</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px;text-align:left;">
+            <div style="flex:1.2;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="margin-bottom:5px;"><b>〰️ EM-SUSPENSION:</b> <span id="susp-stat" style="color:#4ade80;">ACTIVE-LEVEL (0.02G CABIN ROLL)</span></div>
+                <div style="margin-bottom:5px;"><b>⚖️ ISO 21448 SOTIF:</b> <span id="sotif-stat" style="color:#38bdf8;">NOMINAL (0 EDGE-CASE CONFLICTS)</span></div>
+                <div><b>🏆 FLAGSHIP EDITION:</b> <span style="color:#facc15;">14-LAYER QNX 8.0 AETHER TITAN</span></div>
+            </div>
+            <div style="flex:1;min-width:220px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;text-align:center;">
+                <div style="color:#94a3b8;font-size:10px;margin-bottom:4px;">CHASSIS GYRO & PITCH STABILIZER</div>
+                <div style="font-size:15px;font-weight:bold;color:#34d399;" id="gyro-val">PITCH: 0.0° | ROLL: 0.0°</div>
+                <div style="font-size:10px;color:#38bdf8;margin-top:4px;">2.1ms MAGNETIC DAMPER LOOP</div>
+            </div>
+        </div>`;
+    document.body.appendChild(l14);
+
+    const logs = document.getElementById("kernel-logs");
+
+    document.getElementById("btn-susp").onclick = () => {
+        const ss = document.getElementById("susp-stat"), gv = document.getElementById("gyro-val");
+        ss.innerText = "POTHOLE NEUTRALIZED IN 2.1ms!"; ss.style.color = "#facc15";
+        gv.innerText = "DAMPING: 99.4% SHOCK ABSORBED"; gv.style.color = "#facc15";
+        if (logs) { logs.innerHTML += `<div style="color:#34d399;">[CHASSIS] Deep pothole detected by LiDAR! EM-Actuators neutralized shock in 2.1ms.</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Road anomaly absorbed. Active electromagnetic suspension stabilized.")); }
+        setTimeout(() => {
+            ss.innerText = "ACTIVE-LEVEL (0.02G CABIN ROLL)"; ss.style.color = "#4ade80";
+            gv.innerText = "PITCH: 0.0° | ROLL: 0.0°"; gv.style.color = "#34d399";
+        }, 3800);
+    };
+
+    document.getElementById("btn-sotif").onclick = () => {
+        const st = document.getElementById("sotif-stat");
+        st.innerText = "MINIMAL RISK TRAJECTORY LOCKED (0.5ms)"; st.style.color = "#fb923c";
+        if (logs) { logs.innerHTML += `<div style="color:#fbbf24;">[SOTIF_AI] ISO 21448 edge-case resolved! Safe corridor trajectory computed in 0.5ms.</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("SOTIF safety arbiter active. Minimal risk trajectory locked.")); }
+        setTimeout(() => { st.innerText = "NOMINAL (0 EDGE-CASE CONFLICTS)"; st.style.color = "#38bdf8"; }, 4000);
+    };
+
+    document.getElementById("btn-spec").onclick = () => {
+        const spec = `QNX 8.0 14-LAYER AETHER TITAN ARCHITECTURE SPEC\nGenerated: ${new Date().toISOString()}\n--------------------------------------------------\nL1: Multi-Threaded C++ RTOS Core (<10us IPC)\nL2: Adaptive Partitioning (90% Prio 9u) & V2X\nL3: 3D Digital Twin, Level-4 AEB & Kernel Ring Buffer\nL4: Hypervisor Crypto-CAN IDS & Zero-Downtime OTA\nL5: ISO 26262 ASIL-D Dual-Core Lockstep & V2V Platoon\nL6: 60FPS AI Vision HUD & 8-Cell EV Thermal Matrix\nL7: RTK-GPS/NavIC (±1.2cm) & Voice Command Co-Pilot\nL8: Post-Quantum Kyber-1024, V2I Grid & 148 TOPS NPU\nL9: Driver Biometric DMS & Cloud Fleet Mesh\nL10: V2G Bidirectional Power & Live Hex Sniffer\nL11: 360 LiDAR Point-Cloud, SNN & Roof Scout Drone\nL12: Blackbox Time-Machine & Driver Hot-Swap\nL13: LEO Satellite Failover, H2-Hybrid & SHA3 Ledger\nL14: Active EM-Suspension & ISO 21448 SOTIF Arbiter`;
+        const blob = new Blob([spec], { type: "text/plain" });
+        const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "QNX_14Layer_Aether_Spec.txt"; a.click();
+    };
+});

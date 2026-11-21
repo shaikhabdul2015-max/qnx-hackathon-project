@@ -1,6 +1,6 @@
-# 🚗 QNX 8.0 Deterministic Sensor Fusion & Autonomous Safety Cockpit (13-Layer Cosmos Architecture)
+# 🚗 QNX 8.0 Deterministic Sensor Fusion & Autonomous Safety Cockpit (14-Layer Aether Titan Architecture)
 
-An industrial-grade, deterministic automotive cockpit and microkernel simulation built with **C++ (Multi-Threaded RTOS Core)**, **Python (Socket IPC & Telemetry Bridge)**, and a **13-Layer Cosmos Interactive Web Cockpit**.
+An industrial-grade, deterministic automotive cockpit and microkernel simulation built with **C++ (Multi-Threaded RTOS Core)**, **Python (Socket IPC & Telemetry Bridge)**, and a **14-Layer Aether Titan Interactive Web Cockpit**.
 
 ---
 
@@ -9,14 +9,14 @@ An industrial-grade, deterministic automotive cockpit and microkernel simulation
 ```mermaid
 graph LR
     A[C++ RTOS Core<br/>Multi-Threaded Kernel] -->|Socket IPC & CSV| B[Python Telemetry Server<br/>UltraQNXHandler :8080]
-    B -->|Real-Time Stream| C[13-Layer Cosmos QNX 8.0 Cockpit :8000]
+    B -->|Real-Time Stream| C[14-Layer Aether Titan QNX 8.0 Cockpit :8000]
     C -->|Control & Faults| B
     B -->|Deterministic Commands| A
 ```
 
 ---
 
-## ⚡ 13-Layer Cosmos Enterprise & Safety Stack
+## ⚡ 14-Layer Aether Titan Enterprise & Safety Stack
 
 1. **Deterministic C++ Microkernel Core & Socket IPC**
    * Sub-10µs deterministic latency with live **RTOS Jitter Oscilloscope**.
