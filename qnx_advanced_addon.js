@@ -2253,3 +2253,50 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => { ps.innerText = "STANDARD ACOUSTICS (ENCRYPTED)"; ps.style.color = "#38bdf8"; }, 4000);
     };
 });
+
+// --- LAYER 39 (TITANIUM AEGIS): EMP FARADAY LIGHTNING SHIELD & ZERO-G NAP POD ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-emp39")) return;
+    const l39 = document.createElement("div");
+    l39.style.cssText = "width:92%;max-width:800px;margin:15px auto 205px auto;padding:14px;background:#0f172a;border:1px solid #60a5fa;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 135px rgba(96,165,250,0.55);";
+    l39.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#93c5fd;">🛡️ LAYER 39 (TITANIUM AEGIS): EMP LIGHTNING SHIELD & ZERO-G NAP POD</strong>
+            <div>
+                <button id="btn-emp39" style="background:#2563eb;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">⚡ EMP FARADAY</button>
+                <button id="btn-nap39" style="background:#7c3aed;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">🛋️ ZERO-G POD</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px;text-align:left;">
+            <div style="flex:1.2;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="margin-bottom:5px;"><b>⚡ FARADAY SURGE SHIELD:</b> <span id="emp39-stat" style="color:#4ade80;">OPTICAL-BUS ARMED (100kV RATED)</span></div>
+                <div style="margin-bottom:5px;"><b>🛋️ CABIN ERGONOMICS:</b> <span id="nap39-stat" style="color:#38bdf8;">ACTIVE DRIVE POSTURE</span></div>
+                <div><b>👑 AEGIS EDITION:</b> <span style="color:#facc15;">39-LAYER QNX 8.0 TITANIUM AEGIS</span></div>
+            </div>
+            <div style="flex:1;min-width:220px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;text-align:center;">
+                <div style="color:#94a3b8;font-size:10px;margin-bottom:4px;">TITANIUM AEGIS STACK</div>
+                <div style="font-size:14px;font-weight:bold;color:#93c5fd;">39 / 39 LAYERS ONLINE</div>
+                <div style="font-size:10px;color:#4ade80;margin-top:4px;">HARDENED DETERMINISTIC OS</div>
+            </div>
+        </div>`;
+    document.body.appendChild(l39);
+
+    document.querySelectorAll("button").forEach(b => { if (b.innerText.includes("L38")) b.innerText = "⬇️ L39"; });
+
+    const logs = document.getElementById("kernel-logs");
+
+    document.getElementById("btn-emp39").onclick = () => {
+        const es = document.getElementById("emp39-stat");
+        es.innerText = "LIGHTNING SURGE GROUNDED! 0 ECU DAMAGE!"; es.style.color = "#facc15";
+        if (logs) { logs.innerHTML += `<div style="color:#93c5fd;">[EMP_39] Faraday cage & optical bus diverted 100kV lightning surge safely.</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Faraday cage shield grounded electromagnetic surge. All electronic control units nominal.")); }
+        setTimeout(() => { es.innerText = "OPTICAL-BUS ARMED (100kV RATED)"; es.style.color = "#4ade80"; }, 4000);
+    };
+
+    document.getElementById("btn-nap39").onclick = () => {
+        const ns = document.getElementById("nap39-stat");
+        ns.innerText = "ZERO-G RECLINE + SENTRY GUARD ACTIVE!"; ns.style.color = "#c084fc";
+        if (logs) { logs.innerHTML += `<div style="color:#c084fc;">[POD_39] Zero-G cabin recliner deployed with 360-degree sentry perimeter guard.</div>`; logs.scrollTop = logs.scrollHeight; }
+        setTimeout(() => { ns.innerText = "ACTIVE DRIVE POSTURE"; ns.style.color = "#38bdf8"; }, 4000);
+    };
+});
