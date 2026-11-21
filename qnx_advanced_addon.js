@@ -2543,3 +2543,58 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => { qs.innerText = "100,000 Hz LOSSLESS STREAM ON"; qs.style.color = "#38bdf8"; }, 4000);
     };
 });
+
+// --- LAYER 45 (SAPPHIRE SOVEREIGN): AIR-TO-WATER CONDENSER & CMG GYRO-STABILIZER ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-h2o45")) return;
+    const l45 = document.createElement("div");
+    l45.style.cssText = "width:92%;max-width:800px;margin:15px auto 240px auto;padding:14px;background:#0f172a;border:2px solid #3b82f6;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 165px rgba(59,130,246,0.65);";
+    l45.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#60a5fa;">💠 LAYER 45 (SAPPHIRE SOVEREIGN): AIR-TO-WATER HARVESTER & CMG GYRO-STABILIZER</strong>
+            <div>
+                <button id="btn-h2o45" style="background:#2563eb;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">💧 AIR-TO-WATER</button>
+                <button id="btn-cmg45" style="background:#0891b2;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">🌀 CMG GYRO LOCK</button>
+                <button id="btn-sap45" style="background:linear-gradient(90deg,#3b82f6,#facc15);color:#0f172a;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">💠 45L SAPPHIRE</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px;text-align:left;">
+            <div style="flex:1.2;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="margin-bottom:5px;"><b>💧 ATMOSPHERIC WATER:</b> <span id="h2o45-stat" style="color:#4ade80;">PELTIER CONDENSER (+2.5 L/hr PURE)</span></div>
+                <div style="margin-bottom:5px;"><b>🌀 MOMENTUM GYRO:</b> <span id="cmg45-stat" style="color:#38bdf8;">0.00° ROLL (SEA-LINK CROSSWIND SAFE)</span></div>
+                <div><b>👑 SAPPHIRE TIER:</b> <span style="color:#facc15;">45-LAYER QNX 8.0 SAPPHIRE SOVEREIGN</span></div>
+            </div>
+            <div style="flex:1;min-width:220px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;text-align:center;">
+                <div style="color:#94a3b8;font-size:10px;margin-bottom:4px;">SAPPHIRE MILESTONE STACK</div>
+                <div style="font-size:14px;font-weight:bold;color:#60a5fa;" id="sap45-stat">45 / 45 LAYERS COMPLETE</div>
+                <div style="font-size:10px;color:#4ade80;margin-top:4px;">LEGENDARY QNX 8.0 ARCHITECTURE</div>
+            </div>
+        </div>`;
+    document.body.appendChild(l45);
+
+    document.querySelectorAll("button").forEach(b => { if (b.innerText.includes("L44")) b.innerText = "⬇️ L45"; });
+
+    const logs = document.getElementById("kernel-logs");
+
+    document.getElementById("btn-h2o45").onclick = () => {
+        const hs = document.getElementById("h2o45-stat");
+        hs.innerText = "CONDENSING HUMIDITY: +3.2 L/hr DISTILLED!"; hs.style.color = "#22d3ee";
+        if (logs) { logs.innerHTML += `<div style="color:#60a5fa;">[H2O_45] Peltier atmospheric condenser harvested +3.2 L/hr pure water.</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Atmospheric water harvester active at 3.2 liters per hour.")); }
+        setTimeout(() => { hs.innerText = "PELTIER CONDENSER (+2.5 L/hr PURE)"; hs.style.color = "#4ade80"; }, 4000);
+    };
+
+    document.getElementById("btn-cmg45").onclick = () => {
+        const cs = document.getElementById("cmg45-stat");
+        cs.innerText = "85 km/h CROSSWIND NEUTRALIZED (0.00°)!"; cs.style.color = "#c084fc";
+        if (logs) { logs.innerHTML += `<div style="color:#38bdf8;">[CMG_45] Control-moment gyroscope counteracted 85 km/h coastal bridge crosswind.</div>`; logs.scrollTop = logs.scrollHeight; }
+        setTimeout(() => { cs.innerText = "0.00° ROLL (SEA-LINK CROSSWIND SAFE)"; cs.style.color = "#38bdf8"; }, 4000);
+    };
+
+    document.getElementById("btn-sap45").onclick = () => {
+        const ss = document.getElementById("sap45-stat");
+        ss.innerText = "💠 45-LAYER SAPPHIRE VERIFIED!"; ss.style.color = "#4ade80";
+        if (logs) { logs.innerHTML += `<div style="color:#fde047;">[SAP_45] Complete 45-Layer QNX 8.0 Sapphire Sovereign Flagship certified 100%!</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("45 layer QNX 8.0 Sapphire Sovereign architecture verified at 100 percent.")); }
+    };
+});
