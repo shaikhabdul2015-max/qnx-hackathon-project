@@ -2496,3 +2496,50 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => { gs.innerText = "V2I CORRIDOR PACING ACTIVE"; gs.style.color = "#38bdf8"; }, 4000);
     };
 });
+
+// --- LAYER 44 (CELESTIAL IMPERIUM): MM-WAVE ROAD DE-ICER & 100kHz QUANTUM STREAM ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-deice44")) return;
+    const l44 = document.createElement("div");
+    l44.style.cssText = "width:92%;max-width:800px;margin:15px auto 235px auto;padding:14px;background:#0f172a;border:1px solid #f472b6;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 160px rgba(244,114,182,0.65);";
+    l44.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#f9a8d4;">✨ LAYER 44 (CELESTIAL IMPERIUM): MM-WAVE ROAD CONDITIONER & 100kHz STREAM</strong>
+            <div>
+                <button id="btn-deice44" style="background:#db2777;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">🔥 MM-WAVE DRY</button>
+                <button id="btn-qstr44" style="background:#7c3aed;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">📡 100kHz STREAM</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px;text-align:left;">
+            <div style="flex:1.2;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="margin-bottom:5px;"><b>🔥 60GHz EMITTER:</b> <span id="deice44-stat" style="color:#4ade80;">TIRE PATH DRYING STANDBY</span></div>
+                <div style="margin-bottom:5px;"><b>📡 TELEMETRY BUS:</b> <span id="qstr44-stat" style="color:#38bdf8;">100,000 Hz LOSSLESS STREAM ON</span></div>
+                <div><b>👑 IMPERIUM TIER:</b> <span style="color:#facc15;">44-LAYER QNX 8.0 CELESTIAL IMPERIUM</span></div>
+            </div>
+            <div style="flex:1;min-width:220px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;text-align:center;">
+                <div style="color:#94a3b8;font-size:10px;margin-bottom:4px;">CELESTIAL IMPERIUM STACK</div>
+                <div style="font-size:14px;font-weight:bold;color:#f9a8d4;">44 / 44 LAYERS ONLINE</div>
+                <div style="font-size:10px;color:#4ade80;margin-top:4px;">UNRIVALED DETERMINISTIC OS</div>
+            </div>
+        </div>`;
+    document.body.appendChild(l44);
+
+    document.querySelectorAll("button").forEach(b => { if (b.innerText.includes("L43")) b.innerText = "⬇️ L44"; });
+
+    const logs = document.getElementById("kernel-logs");
+
+    document.getElementById("btn-deice44").onclick = () => {
+        const ds = document.getElementById("deice44-stat");
+        ds.innerText = "60GHz BEAM VAPORIZED WATER FILM! 100% GRIP!"; ds.style.color = "#facc15";
+        if (logs) { logs.innerHTML += `<div style="color:#f472b6;">[MMW_44] 60GHz millimeter-wave emitter cleared tire contact patch of water/ice.</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Millimeter wave road conditioner active. Dry tire grip restored.")); }
+        setTimeout(() => { ds.innerText = "TIRE PATH DRYING STANDBY"; ds.style.color = "#4ade80"; }, 4000);
+    };
+
+    document.getElementById("btn-qstr44").onclick = () => {
+        const qs = document.getElementById("qstr44-stat");
+        qs.innerText = "BURST SYNC: 100kHz @ 0.000% PACKET LOSS!"; qs.style.color = "#c084fc";
+        if (logs) { logs.innerHTML += `<div style="color:#c084fc;">[QSTR_44] Lossless 100,000 Hz kernel telemetry stream verified across all 44 layers.</div>`; logs.scrollTop = logs.scrollHeight; }
+        setTimeout(() => { qs.innerText = "100,000 Hz LOSSLESS STREAM ON"; qs.style.color = "#38bdf8"; }, 4000);
+    };
+});
