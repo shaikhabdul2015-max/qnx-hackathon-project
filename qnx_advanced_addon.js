@@ -2692,3 +2692,50 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => { cs.innerText = "GLOBAL MESH SYNCED (0.02ms)"; cs.style.color = "#38bdf8"; }, 4000);
     };
 });
+
+// --- LAYER 48 (ORION MONARCH): SONAR PUDDLE-DEPTH PROFILER & CIRCADIAN LIGHT SYNC ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-sonar48")) return;
+    const l48 = document.createElement("div");
+    l48.style.cssText = "width:92%;max-width:800px;margin:15px auto 255px auto;padding:14px;background:#0f172a;border:1px solid #38bdf8;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 180px rgba(56,189,248,0.65);";
+    l48.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#7dd3fc;">🌌 LAYER 48 (ORION MONARCH): PUDDLE-DEPTH SONAR & CIRCADIAN LIGHT SYNC</strong>
+            <div>
+                <button id="btn-sonar48" style="background:#0284c7;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">🌊 PUDDLE SONAR</button>
+                <button id="btn-circ48" style="background:#d97706;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">🌅 CIRCADIAN SYNC</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px;text-align:left;">
+            <div style="flex:1.2;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="margin-bottom:5px;"><b>🌊 SUB-SURFACE SONAR:</b> <span id="sonar48-stat" style="color:#4ade80;">ROAD BED VERIFIED (0 HIDDEN PITS)</span></div>
+                <div style="margin-bottom:5px;"><b>🌅 CIRCADIAN CABIN:</b> <span id="circ48-stat" style="color:#38bdf8;">4800K ALERT DAYLIGHT SPECTRUM</span></div>
+                <div><b>👑 MONARCH TIER:</b> <span style="color:#facc15;">48-LAYER QNX 8.0 ORION MONARCH</span></div>
+            </div>
+            <div style="flex:1;min-width:220px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;text-align:center;">
+                <div style="color:#94a3b8;font-size:10px;margin-bottom:4px;">ORION MONARCH STACK</div>
+                <div style="font-size:14px;font-weight:bold;color:#7dd3fc;">48 / 48 LAYERS ONLINE</div>
+                <div style="font-size:10px;color:#4ade80;margin-top:4px;">SUPREME DETERMINISTIC OS</div>
+            </div>
+        </div>`;
+    document.body.appendChild(l48);
+
+    document.querySelectorAll("button").forEach(b => { if (b.innerText.includes("L47")) b.innerText = "⬇️ L48"; });
+
+    const logs = document.getElementById("kernel-logs");
+
+    document.getElementById("btn-sonar48").onclick = () => {
+        const ss = document.getElementById("sonar48-stat");
+        ss.innerText = "DEEP PIT +35m (48cm)! SUSPENSION LIFTED!"; ss.style.color = "#facc15";
+        if (logs) { logs.innerHTML += `<div style="color:#38bdf8;">[SONAR_48] Ultrasonic puddle profiler detected 48cm submerged pothole; rerouted!</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Submerged pothole detected ahead. Suspension lifted and lane adjusted.")); }
+        setTimeout(() => { ss.innerText = "ROAD BED VERIFIED (0 HIDDEN PITS)"; ss.style.color = "#4ade80"; }, 4000);
+    };
+
+    document.getElementById("btn-circ48").onclick = () => {
+        const cs = document.getElementById("circ48-stat");
+        cs.innerText = "6500K ANTI-FATIGUE BOOST LOCKED!"; cs.style.color = "#fbbf24";
+        if (logs) { logs.innerHTML += `<div style="color:#fbbf24;">[CIRC_48] Cabin circadian lighting tuned to 6500K alertness spectrum.</div>`; logs.scrollTop = logs.scrollHeight; }
+        setTimeout(() => { cs.innerText = "4800K ALERT DAYLIGHT SPECTRUM"; cs.style.color = "#38bdf8"; }, 4000);
+    };
+});
