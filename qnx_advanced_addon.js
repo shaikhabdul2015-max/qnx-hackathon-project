@@ -1570,3 +1570,104 @@ document.addEventListener("DOMContentLoaded", () => {
         const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "QNX_60Sec_Winning_Pitch.txt"; a.click();
     };
 });
+
+// --- LAYER 25 (GRAND MASTER): VOLUMETRIC HOLOGRAM GESTURE, HAPS RELAY & 25L GOLDEN CROWN ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-holo")) return;
+    const l25 = document.createElement("div");
+    l25.style.cssText = "width:92%;max-width:800px;margin:15px auto 135px auto;padding:14px;background:#0f172a;border:2px solid #facc15;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 75px rgba(250,204,21,0.5);";
+    l25.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#fde047;">🏆 LAYER 25 (GRAND MASTER): HOLOGRAM GESTURE, HAPS RELAY & GOLDEN CROWN</strong>
+            <div>
+                <button id="btn-holo" style="background:#7c3aed;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">🖐️ AIR-GESTURE</button>
+                <button id="btn-haps" style="background:#0284c7;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">🎈 HAPS RELAY</button>
+                <button id="btn-gold25" style="background:linear-gradient(90deg,#f59e0b,#eab308);color:#000;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">👑 25L GOLDEN CROWN</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px;text-align:left;">
+            <div style="flex:1.2;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="margin-bottom:5px;"><b>🖐️ VOLUMETRIC HOLOGRAM:</b> <span id="holo-stat" style="color:#4ade80;">MID-AIR ULTRASONIC HAPTICS ON</span></div>
+                <div style="margin-bottom:5px;"><b>🎈 STRATOSPHERE HAPS:</b> <span id="haps-stat" style="color:#38bdf8;">20km SOLAR-DRONE MESH LOCKED</span></div>
+                <div><b>🏆 GRAND EDITION:</b> <span style="color:#fde047;">25-LAYER QNX 8.0 GRAND MASTER</span></div>
+            </div>
+            <div style="flex:1;min-width:220px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;text-align:center;">
+                <div style="color:#94a3b8;font-size:10px;margin-bottom:4px;">QUARTER-CENTURY MILESTONE</div>
+                <div style="font-size:14px;font-weight:bold;color:#fde047;" id="gold-stat">25 / 25 LAYERS COMPLETE</div>
+                <div style="font-size:10px;color:#4ade80;margin-top:4px;">UNBEATABLE QNX 8.0 MASTERPIECE</div>
+            </div>
+        </div>`;
+    document.body.appendChild(l25);
+
+    document.querySelectorAll("button").forEach(b => { if (b.innerText.includes("L24")) b.innerText = "⬇️ L25"; });
+
+    const logs = document.getElementById("kernel-logs");
+
+    document.getElementById("btn-holo").onclick = () => {
+        const hs = document.getElementById("holo-stat");
+        hs.innerText = "AIR-SWIPE CAPTURED! SPORT HUD PROJECTED!"; hs.style.color = "#c084fc";
+        if (logs) { logs.innerHTML += `<div style="color:#c084fc;">[HOLO_25] Mid-air ultrasonic hand gesture executed zero-touch command.</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Volumetric hologram air gesture executed.")); }
+        setTimeout(() => { hs.innerText = "MID-AIR ULTRASONIC HAPTICS ON"; hs.style.color = "#4ade80"; }, 4000);
+    };
+
+    document.getElementById("btn-haps").onclick = () => {
+        const hp = document.getElementById("haps-stat");
+        hp.innerText = "LASER OPTICAL HAPS LINK: 2.4 Gbps!"; hp.style.color = "#22d3ee";
+        if (logs) { logs.innerHTML += `<div style="color:#38bdf8;">[HAPS_25] Stratospheric solar drone laser-link active at 20km altitude.</div>`; logs.scrollTop = logs.scrollHeight; }
+    };
+
+    document.getElementById("btn-gold25").onclick = () => {
+        const gs = document.getElementById("gold-stat");
+        gs.innerText = "🏆 25-LAYER GOLDEN CROWN UNLOCKED!"; gs.style.color = "#4ade80";
+        if (logs) { logs.innerHTML += `<div style="color:#fde047;">[GRAND_25] Quarter-Century 25-Layer QNX 8.0 Grand Master verified 100%!</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Quarter century 25 layer QNX 8.0 Grand Master certification complete.")); }
+    };
+});
+
+// --- LAYER 26 (PRIME NEXUS): ZKP PRIVACY AUTO-PAY & 10,000-PATH MONTE-CARLO PREDICTOR ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-zkp")) return;
+    const l26 = document.createElement("div");
+    l26.style.cssText = "width:92%;max-width:800px;margin:15px auto 140px auto;padding:14px;background:#0f172a;border:1px solid #818cf8;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 78px rgba(129,140,248,0.45);";
+    l26.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#a5b4fc;">💠 LAYER 26 (PRIME NEXUS): ZKP PRIVACY TOLL-PAY & 10K-PATH PREDICTOR</strong>
+            <div>
+                <button id="btn-zkp" style="background:#4f46e5;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">🛡️ ZKP TOLL PAY</button>
+                <button id="btn-mc" style="background:#0d9488;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">🎲 10K PATH SIM</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px;text-align:left;">
+            <div style="flex:1.2;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="margin-bottom:5px;"><b>🛡️ ZKP PRIVACY WALLET:</b> <span id="zkp-stat" style="color:#4ade80;">ANONYMOUS SNARK READY (₹2,450)</span></div>
+                <div style="margin-bottom:5px;"><b>🎲 MONTE-CARLO AI:</b> <span id="mc-stat" style="color:#38bdf8;">10,000 TRAJECTORIES/SEC (99.98% SAFE)</span></div>
+                <div><b>👑 NEXUS EDITION:</b> <span style="color:#facc15;">26-LAYER QNX 8.0 PRIME NEXUS</span></div>
+            </div>
+            <div style="flex:1;min-width:220px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;text-align:center;">
+                <div style="color:#94a3b8;font-size:10px;margin-bottom:4px;">PRIME ARCHITECTURE STACK</div>
+                <div style="font-size:14px;font-weight:bold;color:#a5b4fc;">26 / 26 LAYERS ONLINE</div>
+                <div style="font-size:10px;color:#4ade80;margin-top:4px;">DETERMINISTIC REAL-TIME OS</div>
+            </div>
+        </div>`;
+    document.body.appendChild(l26);
+
+    document.querySelectorAll("button").forEach(b => { if (b.innerText.includes("L25")) b.innerText = "⬇️ L26"; });
+
+    const logs = document.getElementById("kernel-logs");
+
+    document.getElementById("btn-zkp").onclick = () => {
+        const zs = document.getElementById("zkp-stat");
+        zs.innerText = "ZKP TOLL PAID IN 14ms (0 IDENTITY LEAK)!"; zs.style.color = "#a5b4fc";
+        if (logs) { logs.innerHTML += `<div style="color:#a5b4fc;">[ZKP_PAY] Express-corridor toll settled via Zero-Knowledge SNARK in 14ms.</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Zero knowledge privacy toll payment verified in 14 milliseconds.")); }
+        setTimeout(() => { zs.innerText = "ANONYMOUS SNARK READY (₹2,450)"; zs.style.color = "#4ade80"; }, 4000);
+    };
+
+    document.getElementById("btn-mc").onclick = () => {
+        const ms = document.getElementById("mc-stat");
+        ms.innerText = "SIMULATED 10,000 FUTURES -> OPTIMAL PATH!"; ms.style.color = "#2dd4bf";
+        if (logs) { logs.innerHTML += `<div style="color:#2dd4bf;">[MC_SIM] Quantum Monte-Carlo engine evaluated 10,000 futures in 0.9ms.</div>`; logs.scrollTop = logs.scrollHeight; }
+        setTimeout(() => { ms.innerText = "10,000 TRAJECTORIES/SEC (99.98% SAFE)"; ms.style.color = "#38bdf8"; }, 4000);
+    };
+});
