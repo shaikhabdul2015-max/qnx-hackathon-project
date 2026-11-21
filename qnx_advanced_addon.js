@@ -2156,3 +2156,53 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 });
+
+// --- LAYER 37 (PROMETHEUS): SPECTRAL OIL/SLIP DETECTOR & AI STATUS VOICE BRIEFING ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-slip37")) return;
+    const l37 = document.createElement("div");
+    l37.style.cssText = "width:92%;max-width:800px;margin:15px auto 195px auto;padding:14px;background:#0f172a;border:1px solid #fb923c;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 125px rgba(251,146,60,0.55);";
+    l37.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#fdba74;">🔥 LAYER 37 (PROMETHEUS): SPECTRAL OIL/SLIP SCANNER & AI VOICE BRIEFING</strong>
+            <div>
+                <button id="btn-slip37" style="background:#ea580c;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">🛢️ OIL/SLIP SCAN</button>
+                <button id="btn-brief37" style="background:#0284c7;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">🎙️ AI BRIEFING</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px;text-align:left;">
+            <div style="flex:1.2;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="margin-bottom:5px;"><b>🛢️ SPECTRAL ROAD SCAN:</b> <span id="slip37-stat" style="color:#4ade80;">HIGH-GRIP ASPHALT (μ = 0.92)</span></div>
+                <div style="margin-bottom:5px;"><b>🎙️ AI CO-PILOT VOICE:</b> <span id="brief37-stat" style="color:#38bdf8;">NEURAL SYNTHESIS READY</span></div>
+                <div><b>👑 PROMETHEUS TIER:</b> <span style="color:#facc15;">37-LAYER QNX 8.0 PROMETHEUS APEX</span></div>
+            </div>
+            <div style="flex:1;min-width:220px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;text-align:center;">
+                <div style="color:#94a3b8;font-size:10px;margin-bottom:4px;">PROMETHEUS ARCHITECTURE STACK</div>
+                <div style="font-size:14px;font-weight:bold;color:#fdba74;">37 / 37 LAYERS ONLINE</div>
+                <div style="font-size:10px;color:#4ade80;margin-top:4px;">SUPREME DETERMINISTIC OS</div>
+            </div>
+        </div>`;
+    document.body.appendChild(l37);
+
+    document.querySelectorAll("button").forEach(b => { if (b.innerText.includes("L36")) b.innerText = "⬇️ L37"; });
+
+    const logs = document.getElementById("kernel-logs");
+
+    document.getElementById("btn-slip37").onclick = () => {
+        const ss = document.getElementById("slip37-stat");
+        ss.innerText = "OIL SLICK +40m! TORQUE-VECTORING ARMED!"; ss.style.color = "#facc15";
+        if (logs) { logs.innerHTML += `<div style="color:#fdba74;">[SPEC_37] Optical road spectrometer detected low-friction oil patch 40m ahead.</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Low friction surface detected ahead. Pre-arming torque vectoring stability.")); }
+        setTimeout(() => { ss.innerText = "HIGH-GRIP ASPHALT (μ = 0.92)"; ss.style.color = "#4ade80"; }, 4000);
+    };
+
+    document.getElementById("btn-brief37").onclick = () => {
+        const bs = document.getElementById("brief37-stat");
+        bs.innerText = "SPEAKING LIVE EXECUTIVE REPORT..."; bs.style.color = "#22d3ee";
+        if ("speechSynthesis" in window) {
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.speak(new SpeechSynthesisUtterance("All 37 QNX 8.0 layers online. Microkernel IPC latency under 10 microseconds. ASIL-D lockstep, Kyber post-quantum security, and Level 4 autonomous safety active."));
+        }
+        setTimeout(() => { bs.innerText = "NEURAL SYNTHESIS READY"; bs.style.color = "#38bdf8"; }, 5000);
+    };
+});
