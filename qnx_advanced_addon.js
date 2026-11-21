@@ -1913,3 +1913,50 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => { fs.innerText = "REAL-TIME +2.0s HORIZON ACTIVE"; fs.style.color = "#38bdf8"; }, 4000);
     };
 });
+
+// --- LAYER 32 (APOLLO 2^5): IN-MOTION DRONE CARGO DOCK & ZERO-HEAT PHASE COOLER ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-cargo")) return;
+    const l32 = document.createElement("div");
+    l32.style.cssText = "width:92%;max-width:800px;margin:15px auto 170px auto;padding:14px;background:#0f172a;border:2px solid #38bdf8;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 100px rgba(56,189,248,0.55);";
+    l32.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#38bdf8;">🚀 LAYER 32 (APOLLO 2⁵): IN-MOTION DRONE RENDEZVOUS & ZERO-HEAT COOLER</strong>
+            <div>
+                <button id="btn-cargo" style="background:#0284c7;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">🚁 CARGO DOCK</button>
+                <button id="btn-cool32" style="background:#0d9488;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">❄️ CRYO-CHILL 24°C</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px;text-align:left;">
+            <div style="flex:1.2;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="margin-bottom:5px;"><b>🚁 AIR-BRIDGE DOCK:</b> <span id="cargo-stat" style="color:#4ade80;">ROOF MAGNETIC LOCK READY (±2mm)</span></div>
+                <div style="margin-bottom:5px;"><b>❄️ PHASE-CHANGE LOOP:</b> <span id="cool32-stat" style="color:#38bdf8;">24.0°C OPTIMAL NPU TEMP</span></div>
+                <div><b>👑 BINARY APEX:</b> <span style="color:#facc15;">32-LAYER (2⁵) QNX 8.0 APOLLO FLAGSHIP</span></div>
+            </div>
+            <div style="flex:1;min-width:220px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;text-align:center;">
+                <div style="color:#94a3b8;font-size:10px;margin-bottom:4px;">2⁵ BINARY ARCHITECTURE STACK</div>
+                <div style="font-size:14px;font-weight:bold;color:#38bdf8;">32 / 32 LAYERS ONLINE</div>
+                <div style="font-size:10px;color:#4ade80;margin-top:4px;">UNSTOPPABLE QNX 8.0 TITAN</div>
+            </div>
+        </div>`;
+    document.body.appendChild(l32);
+
+    document.querySelectorAll("button").forEach(b => { if (b.innerText.includes("L31")) b.innerText = "⬇️ L32"; });
+
+    const logs = document.getElementById("kernel-logs");
+
+    document.getElementById("btn-cargo").onclick = () => {
+        const cs = document.getElementById("cargo-stat");
+        cs.innerText = "MID-MOTION UAV DOCKED AT 80 km/h (±1.4mm)!"; cs.style.color = "#22d3ee";
+        if (logs) { logs.innerHTML += `<div style="color:#38bdf8;">[APOLLO_32] Autonomous cargo drone coupled to moving roof pod at 80 km/h.</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("In motion cargo drone rendezvous locked at 80 kilometers per hour.")); }
+        setTimeout(() => { cs.innerText = "ROOF MAGNETIC LOCK READY (±2mm)"; cs.style.color = "#4ade80"; }, 4000);
+    };
+
+    document.getElementById("btn-cool32").onclick = () => {
+        const cl = document.getElementById("cool32-stat");
+        cl.innerText = "SUB-ZERO PELTIER CHILL: 18.5°C LOCKED!"; cl.style.color = "#4ade80";
+        if (logs) { logs.innerHTML += `<div style="color:#2dd4bf;">[COOL_32] Closed-loop phase-change cooler stabilized all 32 layers at 18.5C.</div>`; logs.scrollTop = logs.scrollHeight; }
+        setTimeout(() => { cl.innerText = "24.0°C OPTIMAL NPU TEMP"; cl.style.color = "#38bdf8"; }, 4000);
+    };
+});
