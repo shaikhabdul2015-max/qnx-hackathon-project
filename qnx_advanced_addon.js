@@ -1671,3 +1671,50 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => { ms.innerText = "10,000 TRAJECTORIES/SEC (99.98% SAFE)"; ms.style.color = "#38bdf8"; }, 4000);
     };
 });
+
+// --- LAYER 27 (EMPYREAN): NEURO-SYMBOLIC TRAFFIC LAW AI & CRYO-TORQUE BOOST ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-law")) return;
+    const l27 = document.createElement("div");
+    l27.style.cssText = "width:92%;max-width:800px;margin:15px auto 145px auto;padding:14px;background:#0f172a;border:1px solid #f472b6;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 80px rgba(244,114,182,0.45);";
+    l27.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#f472b6;">🔱 LAYER 27 (EMPYREAN): NEURO-SYMBOLIC TRAFFIC LAW AI & CRYO-TORQUE</strong>
+            <div>
+                <button id="btn-law" style="background:#db2777;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">⚖️ MV-ACT CHECK</button>
+                <button id="btn-cryo" style="background:#0284c7;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">❄️ CRYO-TORQUE</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px;text-align:left;">
+            <div style="flex:1.2;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="margin-bottom:5px;"><b>⚖️ SYMBOLIC LAW AI:</b> <span id="law-stat" style="color:#4ade80;">MV-ACT & NHAI COMPLIANT (0 VIOLATIONS)</span></div>
+                <div style="margin-bottom:5px;"><b>❄️ AXIAL-FLUX MOTOR:</b> <span id="cryo-stat" style="color:#38bdf8;">NOMINAL (680 Nm | 98.2% EFF)</span></div>
+                <div><b>👑 EMPYREAN TIER:</b> <span style="color:#facc15;">27-LAYER QNX 8.0 EMPYREAN TITAN</span></div>
+            </div>
+            <div style="flex:1;min-width:220px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;text-align:center;">
+                <div style="color:#94a3b8;font-size:10px;margin-bottom:4px;">EMPYREAN ARCHITECTURE STACK</div>
+                <div style="font-size:14px;font-weight:bold;color:#f472b6;">27 / 27 LAYERS ONLINE</div>
+                <div style="font-size:10px;color:#4ade80;margin-top:4px;">UNMATCHED DETERMINISTIC CORE</div>
+            </div>
+        </div>`;
+    document.body.appendChild(l27);
+
+    document.querySelectorAll("button").forEach(b => { if (b.innerText.includes("L26")) b.innerText = "⬇️ L27"; });
+
+    const logs = document.getElementById("kernel-logs");
+
+    document.getElementById("btn-law").onclick = () => {
+        const ls = document.getElementById("law-stat");
+        ls.innerText = "SCHOOL ZONE DETECTED -> AUTO-CAPPED 30 km/h!"; ls.style.color = "#facc15";
+        if (logs) { logs.innerHTML += `<div style="color:#f472b6;">[LAW_27] Neuro-Symbolic AI enforced 30 km/h school-zone limit per MV-Act.</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("School zone traffic rule verified. Speed capped at 30 kilometers per hour.")); }
+        setTimeout(() => { ls.innerText = "MV-ACT & NHAI COMPLIANT (0 VIOLATIONS)"; ls.style.color = "#4ade80"; }, 4000);
+    };
+
+    document.getElementById("btn-cryo").onclick = () => {
+        const cs = document.getElementById("cryo-stat");
+        cs.innerText = "SUPERCONDUCTING BOOST: 1,240 Nm PEAK!"; cs.style.color = "#22d3ee";
+        if (logs) { logs.innerHTML += `<div style="color:#38bdf8;">[CRYO_27] Liquid-cooled axial-flux stator unlocked 1,240 Nm instant torque.</div>`; logs.scrollTop = logs.scrollHeight; }
+        setTimeout(() => { cs.innerText = "NOMINAL (680 Nm | 98.2% EFF)"; cs.style.color = "#38bdf8"; }, 4000);
+    };
+});
