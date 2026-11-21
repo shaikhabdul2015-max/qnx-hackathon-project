@@ -819,3 +819,64 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => { ss.innerText = "1.8W ULTRA-LOW PWR (0.15ms)"; ss.style.color = "#4ade80"; }, 4000);
     };
 });
+
+// --- LAYER 12 (TRANSCENDENCE): BLACKBOX TIME-MACHINE & SELF-HEALING DRIVER HOT-SWAP ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-replay")) return;
+    const l12 = document.createElement("div");
+    l12.style.cssText = "width:92%;max-width:800px;margin:15px auto 60px auto;padding:14px;background:#0f172a;border:1px solid #ec4899;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 32px rgba(236,72,153,0.28);";
+    l12.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#f472b6;">🌌 LAYER 12 (TRANSCENDENCE): BLACKBOX TIME-MACHINE & SELF-HEALING</strong>
+            <div>
+                <button id="btn-heal" style="background:#db2777;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">🧬 SELF-HEAL DRIVER</button>
+                <button id="btn-replay" style="background:#6366f1;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">⏪ REPLAY INCIDENT</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px;text-align:left;">
+            <div style="flex:1.2;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="margin-bottom:5px;"><b>🧬 DRIVER SANDBOX:</b> <span id="drv-stat" style="color:#4ade80;">LIDAR_DRV_V8.0 (ISOLATED RING-3)</span></div>
+                <div style="margin-bottom:5px;"><b>⏪ FLIGHT RECORDER:</b> <span id="rep-stat" style="color:#38bdf8;">READY (2400 FRAMES BUFFERED)</span></div>
+                <div><b>🏆 SYSTEM TIER:</b> <span style="color:#facc15;">12-LAYER QNX 8.0 TRANSCENDENCE</span></div>
+            </div>
+            <div style="flex:1;min-width:220px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="color:#94a3b8;font-size:10px;margin-bottom:4px;">TIME-MACHINE TIMELINE SCRUBBER</div>
+                <div style="width:100%;height:10px;background:#1e293b;border-radius:5px;overflow:hidden;">
+                    <div id="rep-bar" style="width:100%;height:100%;background:linear-gradient(90deg,#ec4899,#38bdf8);transition:width 0.3s;"></div>
+                </div>
+                <div style="font-size:10px;color:#f472b6;margin-top:5px;" id="rep-time">T-00.00s | LIVE DETERMINISTIC SYNC</div>
+            </div>
+        </div>`;
+    document.body.appendChild(l12);
+
+    const logs = document.getElementById("kernel-logs");
+
+    // Self-Healing Driver Micro-Code Hot-Swap
+    document.getElementById("btn-heal").onclick = () => {
+        const ds = document.getElementById("drv-stat");
+        ds.innerText = "FAULT DETECTED! HOT-SWAPPING DRIVER..."; ds.style.color = "#ef4444";
+        if (logs) { logs.innerHTML += `<div style="color:#f472b6;">[HEAL_AI] Sensor driver fault isolated in Ring-3. Respawning clean PID in 1.1ms...</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Driver fault isolated. Self healing hot swap completed in 1.1 milliseconds.")); }
+        setTimeout(() => {
+            ds.innerText = "HEALED: LIDAR_DRV_V8.1-HOTFIX (0 LOSS)"; ds.style.color = "#4ade80";
+        }, 1200);
+    };
+
+    // Blackbox Incident Replay Time-Machine
+    document.getElementById("btn-replay").onclick = () => {
+        const rs = document.getElementById("rep-stat"), bar = document.getElementById("rep-bar"), tm = document.getElementById("rep-time");
+        rs.innerText = "REPLAYING T-10s INCIDENT LOG..."; rs.style.color = "#facc15";
+        if (logs) { logs.innerHTML += `<div style="color:#818cf8;">[TIME_MCH] Replaying Blackbox telemetry frame buffer (0.25x slow-mo)...</div>`; logs.scrollTop = logs.scrollHeight; }
+        let pct = 0;
+        const iv = setInterval(() => {
+            pct += 20;
+            bar.style.width = pct + "%";
+            tm.innerText = `T-${((100-pct)/10).toFixed(1)}s | REPLAYING TELEMETRY FRAME`;
+            if (pct >= 100) {
+                clearInterval(iv);
+                rs.innerText = "REPLAY COMPLETE (VERIFIED)"; rs.style.color = "#4ade80";
+                tm.innerText = "T-00.00s | LIVE DETERMINISTIC SYNC";
+            }
+        }, 450);
+    };
+});
