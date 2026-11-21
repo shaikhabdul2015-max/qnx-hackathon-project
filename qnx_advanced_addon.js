@@ -2645,3 +2645,50 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => { es.innerText = "72 BPM | NORMAL SINUS RHYTHM"; es.style.color = "#38bdf8"; }, 4000);
     };
 });
+
+// --- LAYER 47 (COSMIC SOVEREIGN): ANTI-PUNCTURE DEBRIS SWEEPER & COSMIC KEY MESH ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-deb47")) return;
+    const l47 = document.createElement("div");
+    l47.style.cssText = "width:92%;max-width:800px;margin:15px auto 250px auto;padding:14px;background:#0f172a;border:1px solid #a855f7;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 175px rgba(168,85,247,0.65);";
+    l47.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#d8b4fe;">🪐 LAYER 47 (COSMIC SOVEREIGN): ANTI-PUNCTURE ROAD SWEEPER & COSMIC MESH</strong>
+            <div>
+                <button id="btn-deb47" style="background:#9333ea;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">🧹 CLEAR DEBRIS</button>
+                <button id="btn-cos47" style="background:#0284c7;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">🌌 COSMIC MESH</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px;text-align:left;">
+            <div style="flex:1.2;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="margin-bottom:5px;"><b>🧹 PNEUMATIC SWEEPER:</b> <span id="deb47-stat" style="color:#4ade80;">TIRE PATH CLEAR (0 SHARP OBJECTS)</span></div>
+                <div style="margin-bottom:5px;"><b>🌌 QUANTUM RELAY:</b> <span id="cos47-stat" style="color:#38bdf8;">GLOBAL MESH SYNCED (0.02ms)</span></div>
+                <div><b>👑 SOVEREIGN TIER:</b> <span style="color:#facc15;">47-LAYER QNX 8.0 COSMIC SOVEREIGN</span></div>
+            </div>
+            <div style="flex:1;min-width:220px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;text-align:center;">
+                <div style="color:#94a3b8;font-size:10px;margin-bottom:4px;">COSMIC SOVEREIGN STACK</div>
+                <div style="font-size:14px;font-weight:bold;color:#d8b4fe;">47 / 47 LAYERS ONLINE</div>
+                <div style="font-size:10px;color:#4ade80;margin-top:4px;">UNSTOPPABLE DETERMINISTIC OS</div>
+            </div>
+        </div>`;
+    document.body.appendChild(l47);
+
+    document.querySelectorAll("button").forEach(b => { if (b.innerText.includes("L46")) b.innerText = "⬇️ L47"; });
+
+    const logs = document.getElementById("kernel-logs");
+
+    document.getElementById("btn-deb47").onclick = () => {
+        const ds = document.getElementById("deb47-stat");
+        ds.innerText = "SHARP DEBRIS BLASTED CLEAR AT +45m!"; ds.style.color = "#facc15";
+        if (logs) { logs.innerHTML += `<div style="color:#d8b4fe;">[DEB_47] High-pressure air-jet & optical sweeper cleared road puncture hazard.</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Road puncture debris cleared ahead.")); }
+        setTimeout(() => { ds.innerText = "TIRE PATH CLEAR (0 SHARP OBJECTS)"; ds.style.color = "#4ade80"; }, 4000);
+    };
+
+    document.getElementById("btn-cos47").onclick = () => {
+        const cs = document.getElementById("cos47-stat");
+        cs.innerText = "DEEP-TUNNEL QUANTUM LINK LOCKED!"; cs.style.color = "#22d3ee";
+        if (logs) { logs.innerHTML += `<div style="color:#38bdf8;">[COS_47] Zero-interference quantum relay synchronized all 47 QNX layers.</div>`; logs.scrollTop = logs.scrollHeight; }
+        setTimeout(() => { cs.innerText = "GLOBAL MESH SYNCED (0.02ms)"; cs.style.color = "#38bdf8"; }, 4000);
+    };
+});
