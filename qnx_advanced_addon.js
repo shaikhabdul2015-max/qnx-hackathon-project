@@ -2598,3 +2598,50 @@ document.addEventListener("DOMContentLoaded", () => {
         if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("45 layer QNX 8.0 Sapphire Sovereign architecture verified at 100 percent.")); }
     };
 });
+
+// --- LAYER 46 (EMERALD DYNASTY): GECKO-GRIP ELECTRO-TIRES & CABIN ECG MONITOR ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-gecko46")) return;
+    const l46 = document.createElement("div");
+    l46.style.cssText = "width:92%;max-width:800px;margin:15px auto 245px auto;padding:14px;background:#0f172a;border:1px solid #10b981;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 170px rgba(16,185,129,0.65);";
+    l46.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#34d399;">🌿 LAYER 46 (EMERALD DYNASTY): GECKO-GRIP TIRES & CABIN ECG MONITOR</strong>
+            <div>
+                <button id="btn-gecko46" style="background:#059669;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">🦎 GECKO-GRIP 300%</button>
+                <button id="btn-ecg46" style="background:#e11d48;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">💓 LIVE ECG SCAN</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px;text-align:left;">
+            <div style="flex:1.2;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="margin-bottom:5px;"><b>🦎 ELECTRO-ADHESION:</b> <span id="gecko46-stat" style="color:#4ade80;">STANDARD TRACTION (1.0G)</span></div>
+                <div style="margin-bottom:5px;"><b>💓 STEERING ECG SENSOR:</b> <span id="ecg46-stat" style="color:#38bdf8;">72 BPM | NORMAL SINUS RHYTHM</span></div>
+                <div><b>👑 DYNASTY TIER:</b> <span style="color:#facc15;">46-LAYER QNX 8.0 EMERALD DYNASTY</span></div>
+            </div>
+            <div style="flex:1;min-width:220px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;text-align:center;">
+                <div style="color:#94a3b8;font-size:10px;margin-bottom:4px;">EMERALD DYNASTY STACK</div>
+                <div style="font-size:14px;font-weight:bold;color:#34d399;">46 / 46 LAYERS ONLINE</div>
+                <div style="font-size:10px;color:#4ade80;margin-top:4px;">SUPREME DETERMINISTIC OS</div>
+            </div>
+        </div>`;
+    document.body.appendChild(l46);
+
+    document.querySelectorAll("button").forEach(b => { if (b.innerText.includes("L45")) b.innerText = "⬇️ L46"; });
+
+    const logs = document.getElementById("kernel-logs");
+
+    document.getElementById("btn-gecko46").onclick = () => {
+        const gs = document.getElementById("gecko46-stat");
+        gs.innerText = "ELECTRO-ADHESION LOCKED: 3.0G INCLINE GRIP!"; gs.style.color = "#facc15";
+        if (logs) { logs.innerHTML += `<div style="color:#34d399;">[GECKO_46] Biomimetic micro-fibril tire adhesion boosted traction by 300%.</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Biomimetic gecko grip electro adhesion activated.")); }
+        setTimeout(() => { gs.innerText = "STANDARD TRACTION (1.0G)"; gs.style.color = "#4ade80"; }, 4000);
+    };
+
+    document.getElementById("btn-ecg46").onclick = () => {
+        const es = document.getElementById("ecg46-stat");
+        es.innerText = "12-LEAD VIRTUAL ECG: 100% HEALTHY!"; es.style.color = "#fb7185";
+        if (logs) { logs.innerHTML += `<div style="color:#fb7185;">[ECG_46] Capacitive steering ECG verified healthy sinus rhythm at 72 BPM.</div>`; logs.scrollTop = logs.scrollHeight; }
+        setTimeout(() => { es.innerText = "72 BPM | NORMAL SINUS RHYTHM"; es.style.color = "#38bdf8"; }, 4000);
+    };
+});
