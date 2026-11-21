@@ -497,3 +497,57 @@ document.addEventListener("DOMContentLoaded", () => {
         rec.start();
     };
 });
+
+// --- LAYER 8 (ULTIMATE): POST-QUANTUM CRYPTO, V2I SMART CITY GRID & EDGE NPU ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-pqc")) return;
+    const l8 = document.createElement("div");
+    l8.style.cssText = "width:92%;max-width:800px;margin:15px auto 40px auto;padding:14px;background:#0f172a;border:1px solid #14b8a6;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 24px rgba(20,184,166,0.22);";
+    l8.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#2dd4bf;">⚛️ POST-QUANTUM CRYPTO (PQC), V2I SMART GRID & EDGE NPU</strong>
+            <div>
+                <button id="btn-pqc" style="background:#0d9488;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">🔐 ROTATE PQC KEY</button>
+                <button id="btn-v2i" style="background:#2563eb;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">🚦 V2I GREEN-WAVE</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px;text-align:left;">
+            <div style="flex:1.2;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="margin-bottom:5px;"><b>⚛️ QUANTUM SHIELD:</b> <span id="pqc-stat" style="color:#4ade80;">KYBER-1024 ACTIVE (256-BIT EQ)</span></div>
+                <div style="margin-bottom:5px;"><b>🚦 V2I TRAFFIC GRID:</b> <span id="v2i-stat" style="color:#38bdf8;">RSU-04 SYNCED (GREEN WAVE)</span></div>
+                <div><b>🧠 EDGE AI NPU:</b> <span id="npu-tops" style="color:#facc15;">142.8 TOPS (42% LOAD)</span></div>
+            </div>
+            <div style="flex:1;min-width:220px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;text-align:center;">
+                <div style="color:#64748b;margin-bottom:6px;">SMART CORRIDOR SIGNAL LINK</div>
+                <div style="font-size:18px;letter-spacing:4px;" id="v2i-lights">🔴 🟡 <span style="text-shadow:0 0 10px #4ade80;">🟢</span></div>
+                <div style="font-size:10px;color:#2dd4bf;margin-top:5px;" id="v2i-eta">NEXT JUNCTION: 0s STOP</div>
+            </div>
+        </div>`;
+    document.body.appendChild(l8);
+
+    setInterval(() => {
+        const tops = (138 + Math.random()*14).toFixed(1);
+        const load = Math.floor(38 + Math.random()*12);
+        const el = document.getElementById("npu-tops");
+        if (el) el.innerText = `${tops} TOPS (${load}% LOAD)`;
+    }, 900);
+
+    const logs = document.getElementById("kernel-logs");
+
+    document.getElementById("btn-pqc").onclick = () => {
+        const p = document.getElementById("pqc-stat");
+        const hex = Math.random().toString(16).substring(2, 10).toUpperCase();
+        p.innerText = `KEY ROTATED [0x${hex}] (0.2ms)`; p.style.color = "#2dd4bf";
+        if (logs) { logs.innerHTML += `<div style="color:#2dd4bf;">[PQC_SEC] Post-Quantum Kyber-1024 session key rotated: 0x${hex}</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Post quantum cryptographic keys rotated.")); }
+        setTimeout(() => { p.innerText = "KYBER-1024 ACTIVE (256-BIT EQ)"; p.style.color = "#4ade80"; }, 3500);
+    };
+
+    document.getElementById("btn-v2i").onclick = () => {
+        const vs = document.getElementById("v2i-stat"), eta = document.getElementById("v2i-eta");
+        vs.innerText = "EMERGENCY CORRIDOR PREEMPTED!"; vs.style.color = "#4ade80";
+        eta.innerText = "ALL 4 SIGNALS LOCKED GREEN";
+        if (logs) { logs.innerHTML += `<div style="color:#60a5fa;">[V2I_GRID] Smart City RSU corridor locked GREEN for QNX vehicle.</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Smart city V2I green wave corridor locked.")); }
+    };
+});
