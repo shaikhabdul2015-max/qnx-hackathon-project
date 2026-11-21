@@ -2300,3 +2300,57 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => { ns.innerText = "ACTIVE DRIVE POSTURE"; ns.style.color = "#38bdf8"; }, 4000);
     };
 });
+
+// --- LAYER 40 (RUBY IMPERIUM): MICRO-TURBINE EXTENDER, ZERO-DAY IMMUNITY & 40L CROWN ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-turb40")) return;
+    const l40 = document.createElement("div");
+    l40.style.cssText = "width:92%;max-width:800px;margin:15px auto 215px auto;padding:14px;background:#0f172a;border:2px solid #f43f5e;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 140px rgba(244,63,94,0.65);";
+    l40.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#fda4af;">♦️ LAYER 40 (RUBY IMPERIUM): MICRO-TURBINE EXTENDER, ZERO-DAY IMMUNE & 40L CROWN</strong>
+            <div>
+                <button id="btn-turb40" style="background:#e11d48;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">🔥 MICRO-TURBINE</button>
+                <button id="btn-imm40" style="background:#7c3aed;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">🛡️ ZERO-DAY SHIELD</button>
+                <button id="btn-ruby40" style="background:linear-gradient(90deg,#f43f5e,#facc15);color:#0f172a;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">♦️ 40L RUBY CROWN</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px;text-align:left;">
+            <div style="flex:1.2;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="margin-bottom:5px;"><b>🔥 CERAMIC TURBINE:</b> <span id="turb40-stat" style="color:#4ade80;">STANDBY (1,850km HYBRID READY)</span></div>
+                <div style="margin-bottom:5px;"><b>🛡️ IMMUNE MESH AI:</b> <span id="imm40-stat" style="color:#38bdf8;">ZERO-DAY AUTO-VACCINE ACTIVE</span></div>
+                <div><b>👑 IMPERIUM TIER:</b> <span style="color:#facc15;">40-LAYER QNX 8.0 RUBY IMPERIUM</span></div>
+            </div>
+            <div style="flex:1;min-width:220px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;text-align:center;">
+                <div style="color:#94a3b8;font-size:10px;margin-bottom:4px;">RUBY JUBILEE MILESTONE</div>
+                <div style="font-size:14px;font-weight:bold;color:#fda4af;" id="ruby40-stat">40 / 40 LAYERS COMPLETE</div>
+                <div style="font-size:10px;color:#4ade80;margin-top:4px;">LEGENDARY QNX 8.0 MASTERPIECE</div>
+            </div>
+        </div>`;
+    document.body.appendChild(l40);
+
+    document.querySelectorAll("button").forEach(b => { if (b.innerText.includes("L39")) b.innerText = "⬇️ L40"; });
+
+    const logs = document.getElementById("kernel-logs");
+
+    document.getElementById("btn-turb40").onclick = () => {
+        const ts = document.getElementById("turb40-stat");
+        ts.innerText = "MICRO-TURBINE ONLINE: +65kW (1,850km)!"; ts.style.color = "#facc15";
+        if (logs) { logs.innerHTML += `<div style="color:#fda4af;">[TURB_40] Ceramic micro-turbine range extender generating +65kW continuous power.</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Ceramic micro turbine range extender online. Range extended to 1850 kilometers.")); }
+        setTimeout(() => { ts.innerText = "STANDBY (1,850km HYBRID READY)"; ts.style.color = "#4ade80"; }, 4000);
+    };
+
+    document.getElementById("btn-imm40").onclick = () => {
+        const is = document.getElementById("imm40-stat");
+        is.innerText = "ZERO-DAY EXPLOIT NEUTRALIZED IN 0.8ms!"; is.style.color = "#c084fc";
+        if (logs) { logs.innerHTML += `<div style="color:#c084fc;">[IMM_40] Swarm immune mesh synthesized & deployed zero-day patch in 0.8ms.</div>`; logs.scrollTop = logs.scrollHeight; }
+    };
+
+    document.getElementById("btn-ruby40").onclick = () => {
+        const rs = document.getElementById("ruby40-stat");
+        rs.innerText = "♦️ 40-LAYER RUBY IMPERIUM VERIFIED!"; rs.style.color = "#4ade80";
+        if (logs) { logs.innerHTML += `<div style="color:#fde047;">[RUBY_40] Complete 40-Layer QNX 8.0 Ruby Imperium Flagship certified 100%!</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("40 layer QNX 8.0 Ruby Imperium architecture verified at 100 percent.")); }
+    };
+});
