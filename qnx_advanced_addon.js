@@ -2206,3 +2206,50 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => { bs.innerText = "NEURAL SYNTHESIS READY"; bs.style.color = "#38bdf8"; }, 5000);
     };
 });
+
+// --- LAYER 38 (NEXUS PRIME): GHAT LANDSLIDE RADAR & ANTI-SPY ACOUSTIC PRIVACY ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-ghat38")) return;
+    const l38 = document.createElement("div");
+    l38.style.cssText = "width:92%;max-width:800px;margin:15px auto 200px auto;padding:14px;background:#0f172a;border:1px solid #34d399;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 130px rgba(52,211,153,0.55);";
+    l38.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#6ee7b7;">🏔️ LAYER 38 (NEXUS PRIME): GHAT LANDSLIDE RADAR & ACOUSTIC PRIVACY SHIELD</strong>
+            <div>
+                <button id="btn-ghat38" style="background:#059669;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">⛰️ LANDSLIDE AI</button>
+                <button id="btn-priv38" style="background:#4f46e5;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">🤫 PRIVACY SHIELD</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px;text-align:left;">
+            <div style="flex:1.2;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="margin-bottom:5px;"><b>⛰️ GEO-SLOPE RADAR:</b> <span id="ghat38-stat" style="color:#4ade80;">SAHYADRI GHAT ROCK-BED STABLE</span></div>
+                <div style="margin-bottom:5px;"><b>🤫 CABIN PRIVACY:</b> <span id="priv38-stat" style="color:#38bdf8;">STANDARD ACOUSTICS (ENCRYPTED)</span></div>
+                <div><b>👑 NEXUS EDITION:</b> <span style="color:#facc15;">38-LAYER QNX 8.0 NEXUS PRIME</span></div>
+            </div>
+            <div style="flex:1;min-width:220px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;text-align:center;">
+                <div style="color:#94a3b8;font-size:10px;margin-bottom:4px;">NEXUS PRIME ARCHITECTURE STACK</div>
+                <div style="font-size:14px;font-weight:bold;color:#6ee7b7;">38 / 38 LAYERS ONLINE</div>
+                <div style="font-size:10px;color:#4ade80;margin-top:4px;">UNRIVALED DETERMINISTIC OS</div>
+            </div>
+        </div>`;
+    document.body.appendChild(l38);
+
+    document.querySelectorAll("button").forEach(b => { if (b.innerText.includes("L37")) b.innerText = "⬇️ L38"; });
+
+    const logs = document.getElementById("kernel-logs");
+
+    document.getElementById("btn-ghat38").onclick = () => {
+        const gs = document.getElementById("ghat38-stat");
+        gs.innerText = "SLOPE SHIFT +1.2km! SAFE DETOUR LOCKED!"; gs.style.color = "#facc15";
+        if (logs) { logs.innerHTML += `<div style="color:#6ee7b7;">[GEO_38] Micro-seismic landslide warning 1.2km ahead. Rerouting via safe corridor!</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Landslide risk detected ahead. Safe alternate corridor locked.")); }
+        setTimeout(() => { gs.innerText = "SAHYADRI GHAT ROCK-BED STABLE"; gs.style.color = "#4ade80"; }, 4000);
+    };
+
+    document.getElementById("btn-priv38").onclick = () => {
+        const ps = document.getElementById("priv38-stat");
+        ps.innerText = "ANTI-LASER VOICE SCRAMBLER ACTIVE!"; ps.style.color = "#c084fc";
+        if (logs) { logs.innerHTML += `<div style="color:#818cf8;">[PRIV_38] Cabin window micro-vibration jammer blocking external eavesdropping.</div>`; logs.scrollTop = logs.scrollHeight; }
+        setTimeout(() => { ps.innerText = "STANDARD ACOUSTICS (ENCRYPTED)"; ps.style.color = "#38bdf8"; }, 4000);
+    };
+});
