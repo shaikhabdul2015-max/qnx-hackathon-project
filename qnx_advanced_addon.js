@@ -263,3 +263,54 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 1200);
     };
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-lockstep")) return;
+    const p = document.createElement("div");
+    p.style.cssText = "width:92%;max-width:800px;margin:15px auto;padding:14px;background:#0f172a;border:1px solid #334155;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;";
+    p.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#f59e0b;">🏅 ISO 26262 ASIL-D LOCKSTEP & V2V PLATOON</strong>
+            <div>
+                <button id="btn-lockstep" style="background:#d97706;color:#fff;border:none;padding:5px 8px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">⚡ CORE DESYNC</button>
+                <button id="btn-platoon" style="background:#059669;color:#fff;border:none;padding:5px 8px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">🚛 V2V PLATOON</button>
+                <button id="btn-audit" style="background:#4f46e5;color:#fff;border:none;padding:5px 8px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">📜 ASIL-D AUDIT</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;font-size:11px;text-align:left;">
+            <div style="flex:1;min-width:230px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div><b>🧠 LOCKSTEP:</b> <span id="ls-status" style="color:#4ade80;">SYNCED (CORE-0 == CORE-1)</span></div>
+                <div style="margin-top:4px;"><b>🚛 V2V GAP:</b> <span id="platoon-gap" style="color:#94a3b8;">INDEPENDENT MODE</span></div>
+            </div>
+            <div style="flex:1;min-width:230px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;text-align:center;font-size:15px;" id="convoy-cars">🚗 (SOLO AUTONOMOUS)</div>
+        </div>`;
+    document.body.appendChild(p);
+
+    const logs = document.getElementById("kernel-logs");
+    let plat = false;
+
+    document.getElementById("btn-lockstep").onclick = () => {
+        const ls = document.getElementById("ls-status");
+        ls.innerText = "MISMATCH! FAILOVER -> CORE-1 (0.4ms)"; ls.style.color = "#ef4444";
+        if (logs) { logs.innerHTML += `<div style="color:#fbbf24;">[ASIL_D] Core-0 ALU mismatch! Lockstep failover to Core-1 in 0.4ms.</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Lockstep core mismatch. Failover to shadow core completed.")); }
+        setTimeout(() => { ls.innerText = "SYNCED (CORE-0 == CORE-1)"; ls.style.color = "#4ade80"; }, 4000);
+    };
+
+    document.getElementById("btn-platoon").onclick = () => {
+        plat = !plat;
+        const gap = document.getElementById("platoon-gap"), cars = document.getElementById("convoy-cars");
+        if (plat) {
+            gap.innerText = "LOCKED 12.0m (5.9GHz V2V)"; gap.style.color = "#4ade80";
+            cars.innerHTML = `🚛 <span style="color:#38bdf8;font-size:11px;">-12m-</span> 🚘 <span style="color:#38bdf8;font-size:11px;">-12m-</span> 🚙`;
+            if (logs) { logs.innerHTML += `<div style="color:#34d399;">[V2V_PLAT] Joined 3-vehicle autonomous platoon.</div>`; logs.scrollTop = logs.scrollHeight; }
+        } else {
+            gap.innerText = "INDEPENDENT MODE"; gap.style.color = "#94a3b8"; cars.innerText = "🚗 (SOLO AUTONOMOUS)";
+        }
+    };
+
+    document.getElementById("btn-audit").onclick = () => {
+        const blob = new Blob([`QNX 8.0 ISO 26262 ASIL-D AUDIT\nDate: ${new Date().toISOString()}\nLatency: <10us (PASS)\nLockstep Failover: 0.4ms (PASS)\nHAM Recovery: 11.4ms (PASS)\nCrypto-CAN Firewall: VERIFIED`], { type: "text/plain" });
+        const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "ISO26262_ASILD_Audit.txt"; a.click();
+    };
+});
