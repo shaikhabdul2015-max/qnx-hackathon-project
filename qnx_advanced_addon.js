@@ -1414,3 +1414,51 @@ document.addEventListener("DOMContentLoaded", () => {
         qaIdx = (qaIdx + 1) % qas.length;
     };
 });
+
+// --- LAYER 22 (OMNIVERSAL): SUB-SURFACE ROAD-VOID RADAR & CARBON-CREDIT ENGINE ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-gpr")) return;
+    const l22 = document.createElement("div");
+    l22.style.cssText = "width:92%;max-width:800px;margin:15px auto 120px auto;padding:14px;background:#0f172a;border:1px solid #22c55e;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 60px rgba(34,197,94,0.4);";
+    l22.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#4ade80;">🌍 LAYER 22 (OMNIVERSAL): SUB-SURFACE VOID RADAR & CARBON-CREDIT LEDGER</strong>
+            <div>
+                <button id="btn-gpr" style="background:#16a34a;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">📡 SCAN ROAD-VOID</button>
+                <button id="btn-co2" style="background:#0d9488;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">🌱 MINT CO2 CREDIT</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px;text-align:left;">
+            <div style="flex:1.2;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="margin-bottom:5px;"><b>📡 SUB-SURFACE GPR:</b> <span id="gpr-stat" style="color:#4ade80;">ASPHALT BED SOLID (4.5m DEPTH SCAN)</span></div>
+                <div style="margin-bottom:5px;"><b>🌱 CARBON OFFSET:</b> <span id="co2-stat" style="color:#38bdf8;">14.2 kg CO2 SAVED (1.42 GREEN CREDITS)</span></div>
+                <div><b>👑 MASTER TIER:</b> <span style="color:#facc15;">22-LAYER QNX 8.0 OMNIVERSAL APEX</span></div>
+            </div>
+            <div style="flex:1;min-width:220px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;text-align:center;">
+                <div style="color:#94a3b8;font-size:10px;margin-bottom:4px;">ACTIVE ARCHITECTURE STACK</div>
+                <div style="font-size:14px;font-weight:bold;color:#4ade80;">22 / 22 LAYERS ONLINE</div>
+                <div style="font-size:10px;color:#38bdf8;margin-top:4px;">ZERO-DEFECT DETERMINISTIC OS</div>
+            </div>
+        </div>`;
+    document.body.appendChild(l22);
+
+    document.querySelectorAll("button").forEach(b => { if (b.innerText.includes("L21")) b.innerText = "⬇️ L22"; });
+
+    const logs = document.getElementById("kernel-logs");
+    let credits = 1.42;
+
+    document.getElementById("btn-gpr").onclick = () => {
+        const gs = document.getElementById("gpr-stat");
+        gs.innerText = "SUB-SURFACE VOID DETECTED! AUTO-REROUTED!"; gs.style.color = "#facc15";
+        if (logs) { logs.innerHTML += `<div style="color:#4ade80;">[GPR_22] Acoustic ground radar detected road-bed cavity 35m ahead. Lane shifted!</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Subsurface road cavity detected. Automatic lane shift executed.")); }
+        setTimeout(() => { gs.innerText = "ASPHALT BED SOLID (4.5m DEPTH SCAN)"; gs.style.color = "#4ade80"; }, 4200);
+    };
+
+    document.getElementById("btn-co2").onclick = () => {
+        credits = +(credits + 0.25).toFixed(2);
+        const cs = document.getElementById("co2-stat");
+        cs.innerText = `${(credits*10).toFixed(1)} kg CO2 SAVED (${credits} GREEN CREDITS!)`; cs.style.color = "#4ade80";
+        if (logs) { logs.innerHTML += `<div style="color:#2dd4bf;">[ECO_MINT] Verified zero-emission telemetry! Minted +0.25 Carbon Credits.</div>`; logs.scrollTop = logs.scrollHeight; }
+    };
+});
