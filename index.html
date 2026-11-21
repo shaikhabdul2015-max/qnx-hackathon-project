@@ -3,34 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QNX 8.0 AI Cockpit & Remote Control</title>
+    <title>QNX 8.0 Autonomous AI Cockpit</title>
     <style>
-        body { font-family: sans-serif; background: #090d16; color: #e2e8f0; margin: 0; padding: 15px; text-align: center; }
-        .header { background: linear-gradient(135deg, #1e293b, #0f172a); padding: 15px; border-radius: 14px; border: 1px solid #38bdf8; margin-bottom: 15px; }
-        .header h2 { margin: 0; color: #38bdf8; font-size: 20px; }
-        .badge { background: #0284c7; color: white; padding: 3px 8px; border-radius: 6px; font-size: 11px; }
-        .conn-bar { display: flex; gap: 8px; max-width: 450px; margin: 0 auto 15px auto; }
-        input { flex: 1; padding: 10px; border-radius: 8px; border: 1px solid #334155; background: #1e293b; color: white; font-size: 12px; }
-        .btn-conn { padding: 10px 15px; border-radius: 8px; border: none; background: #38bdf8; color: #090d16; font-weight: bold; }
-        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-width: 450px; margin: 0 auto 15px auto; }
-        .card { background: #131c31; padding: 12px 5px; border-radius: 12px; border: 1px solid #1e293b; }
-        .value { font-size: 22px; font-weight: bold; margin: 5px 0; color: #f8fafc; }
-        .label { color: #94a3b8; font-size: 10px; }
-        .chart-box { background: #131c31; padding: 10px; border-radius: 12px; border: 1px solid #1e293b; max-width: 430px; margin: 0 auto 15px auto; }
-        canvas { width: 100%; height: 90px; }
-        .controls { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; max-width: 450px; margin: 0 auto 15px auto; }
-        .ctrl-btn { padding: 12px 5px; border-radius: 10px; border: none; font-weight: bold; font-size: 12px; color: white; }
-        .eco { background: #059669; } .sport { background: #d97706; } .stop { background: #dc2626; }
-        .ai-box { padding: 14px; border-radius: 12px; font-size: 13px; font-weight: bold; max-width: 422px; margin: 0 auto; text-align: left; border-left: 5px solid; }
+        body { font-family: sans-serif; background: #060913; color: #e2e8f0; margin: 0; padding: 12px; text-align: center; }
+        .header { background: linear-gradient(135deg, #0f172a, #1e1b4b); padding: 12px; border-radius: 12px; border: 1px solid #38bdf8; margin-bottom: 12px; }
+        .header h2 { margin: 0; color: #38bdf8; font-size: 18px; }
+        .badge { background: #10b981; color: #060913; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: bold; }
+        .conn-bar { display: flex; gap: 6px; max-width: 450px; margin: 0 auto 12px auto; }
+        input { flex: 1; padding: 8px; border-radius: 8px; border: 1px solid #334155; background: #1e293b; color: white; font-size: 11px; }
+        .btn-conn { padding: 8px 14px; border-radius: 8px; border: none; background: #38bdf8; color: #060913; font-weight: bold; }
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; max-width: 450px; margin: 0 auto 10px auto; }
+        .card { background: #111827; padding: 10px 4px; border-radius: 10px; border: 1px solid #1f2937; }
+        .value { font-size: 20px; font-weight: bold; margin: 4px 0; color: #f8fafc; }
+        .label { color: #94a3b8; font-size: 9px; text-transform: uppercase; }
+        .chart-box { background: #111827; padding: 8px; border-radius: 10px; border: 1px solid #1f2937; max-width: 434px; margin: 0 auto 10px auto; }
+        canvas { width: 100%; height: 75px; }
+        .controls { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; max-width: 450px; margin: 0 auto 10px auto; }
+        .ctrl-btn { padding: 10px 2px; border-radius: 8px; border: none; font-weight: bold; font-size: 10px; color: white; }
+        .eco { background: #059669; } .sport { background: #d97706; } .stop { background: #dc2626; } .bb { background: #4f46e5; }
+        .ai-box { padding: 12px; border-radius: 10px; font-size: 12px; font-weight: bold; max-width: 426px; margin: 0 auto; text-align: left; border-left: 5px solid; }
         .NORMAL { background: #064e3b; color: #a7f3d0; border-color: #10b981; }
         .WARNING { background: #78350f; color: #fde68a; border-color: #f59e0b; }
         .CRITICAL { background: #7f1d1d; color: #fecaca; border-color: #ef4444; }
+        #bbModal { display:none; background:#0f172a; border:1px solid #4f46e5; padding:10px; border-radius:10px; max-width:430px; margin:10px auto; text-align:left; font-family:monospace; font-size:11px; color:#a5b4fc; white-space:pre-line; }
     </style>
 </head>
 <body>
     <div class="header">
-        <h2>QNX 8.0 AI COCKPIT <span class="badge">RTOS LIVE</span></h2>
-        <div style="font-size: 11px; color: #94a3b8; margin-top: 4px;">Two-Way Telemetry & Predictive Edge Diagnostics</div>
+        <h2>QNX 8.0 AUTONOMOUS AI COCKPIT <span class="badge">C++ IPC LIVE</span></h2>
+        <div style="font-size: 10px; color: #94a3b8; margin-top: 3px;">ADAS Collision Avoidance • Deterministic RTOS • Black-Box</div>
     </div>
     <div class="conn-bar">
         <input type="text" id="baseUrl" value="https://github.dev">
@@ -39,27 +40,39 @@
     <div class="grid">
         <div class="card"><div class="label">SPEED</div><div class="value" id="speed">--</div><div class="label">km/h</div></div>
         <div class="card"><div class="label">ENGINE TEMP</div><div class="value" id="temp">--</div><div class="label">°C</div></div>
+        <div class="card"><div class="label">ENGINE RPM</div><div class="value" id="rpm">--</div><div class="label">C++ Core</div></div>
+        <div class="card"><div class="label">RADAR DIST</div><div class="value" id="radar">--</div><div class="label">Meters (ADAS)</div></div>
+        <div class="card"><div class="label">RTOS LATENCY</div><div class="value" id="lat">--</div><div class="label">Microseconds</div></div>
         <div class="card"><div class="label">BATTERY</div><div class="value" id="battery">--</div><div class="label">Volts</div></div>
     </div>
     <div class="chart-box">
-        <div class="label" style="text-align:left; margin-bottom:5px;">LIVE SPEED & THERMAL WAVE</div>
-        <canvas id="liveChart" width="400" height="90"></canvas>
+        <div class="label" style="text-align:left; margin-bottom:4px;">REAL-TIME TELEMETRY WAVEFORM</div>
+        <canvas id="liveChart" width="400" height="75"></canvas>
     </div>
     <div class="controls">
-        <button class="ctrl-btn eco" onclick="sendCommand('ECO')">🌿 ECO MODE</button>
-        <button class="ctrl-btn sport" onclick="sendCommand('SPORT')">🔥 SPORT MODE</button>
+        <button class="ctrl-btn eco" onclick="sendCommand('ECO')">🌿 ECO</button>
+        <button class="ctrl-btn sport" onclick="sendCommand('SPORT')">🔥 SPORT</button>
         <button class="ctrl-btn stop" onclick="sendCommand('EMERGENCY_STOP')">🛑 E-BRAKE</button>
+        <button class="ctrl-btn bb" onclick="toggleBlackbox()">📟 LOGS</button>
     </div>
-    <div id="aiBox" class="ai-box NORMAL">🤖 <b>Edge AI Status:</b> Tap LINK to connect with QNX 8.0...</div>
+    <div id="aiBox" class="ai-box NORMAL">🤖 <b>QNX C++ & Edge AI:</b> Tap LINK to connect...</div>
+    <div id="bbModal"></div>
     <script>
         let timer = null, speedData = [], lastSpoken = "";
         function getBase() { return document.getElementById('baseUrl').value.trim().replace('/telemetry', '').replace(/\/$/, ''); }
-        function startSystem() { if (timer) clearInterval(timer); fetchTelemetry(); timer = setInterval(fetchTelemetry, 1500); }
+        function startSystem() { if (timer) clearInterval(timer); fetchTelemetry(); timer = setInterval(fetchTelemetry, 1200); }
         async function sendCommand(mode) {
             await fetch(`${getBase()}/control`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ mode }) });
-            speakAlert(`Switching QNX to ${mode.replace('_', ' ')} mode.`);
+            speak(`Switching QNX RTOS to ${mode.replace('_', ' ')} mode.`);
         }
-        function speakAlert(text) {
+        async function toggleBlackbox() {
+            const box = document.getElementById('bbModal');
+            if (box.style.display === 'block') { box.style.display = 'none'; return; }
+            const res = await fetch(`${getBase()}/blackbox`);
+            box.innerText = "=== QNX C++ BLACK-BOX RECORDER (RPM, RADAR, LATENCY) ===\n" + await res.text();
+            box.style.display = 'block';
+        }
+        function speak(text) {
             if ('speechSynthesis' in window && lastSpoken !== text) {
                 lastSpoken = text;
                 window.speechSynthesis.speak(new SpeechSynthesisUtterance(text));
@@ -68,15 +81,18 @@
         async function fetchTelemetry() {
             try {
                 const res = await fetch(`${getBase()}/telemetry`);
-                const data = await res.json();
-                document.getElementById('speed').innerText = data.speed_kmh;
-                document.getElementById('temp').innerText = data.engine_temp_c;
-                document.getElementById('battery').innerText = data.battery_v;
+                const d = await res.json();
+                document.getElementById('speed').innerText = d.speed_kmh;
+                document.getElementById('temp').innerText = d.engine_temp_c;
+                document.getElementById('rpm').innerText = d.rpm;
+                document.getElementById('radar').innerText = d.radar_m + "m";
+                document.getElementById('lat').innerText = d.latency_us + "µs";
+                document.getElementById('battery').innerText = d.battery_v;
                 const aiBox = document.getElementById('aiBox');
-                aiBox.className = "ai-box " + data.status;
-                aiBox.innerHTML = `🤖 <b>[${data.mode}] Edge AI:</b> ${data.ai_insight}`;
-                if (data.status === "CRITICAL") speakAlert(data.ai_insight);
-                speedData.push(data.speed_kmh);
+                aiBox.className = "ai-box " + d.status;
+                aiBox.innerHTML = `🤖 <b>[${d.mode}] QNX AI:</b> ${d.ai_insight}`;
+                if (d.status === "CRITICAL") speak(d.ai_insight);
+                speedData.push(d.speed_kmh);
                 if (speedData.length > 15) speedData.shift();
                 const c = document.getElementById('liveChart'), ctx = c.getContext('2d');
                 ctx.clearRect(0, 0, c.width, c.height); ctx.strokeStyle = '#38bdf8'; ctx.lineWidth = 3; ctx.beginPath();
@@ -84,7 +100,7 @@
                 ctx.stroke();
             } catch (e) {
                 document.getElementById('aiBox').className = "ai-box CRITICAL";
-                document.getElementById('aiBox').innerHTML = "❌ Connection Error: Check if Port 8080 is Public.";
+                document.getElementById('aiBox').innerHTML = "❌ Connection Lost. Check Port 8080.";
             }
         }
     </script>

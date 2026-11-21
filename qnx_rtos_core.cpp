@@ -4,24 +4,28 @@
 #include <chrono>
 #include <pthread.h>
 #include <sched.h>
-
-void high_priority_safety_task() {
-    struct sched_param param;
-    param.sched_priority = 20;
-    pthread_setschedparam(pthread_self(), SCHED_RR, &param);
-    std::cout << "[QNX RTOS CORE] High-Priority Safety Thread Active (Priority: 20)\n";
-}
+#include <cstdlib>
 
 int main() {
-    std::cout << "Starting QNX 8.0 Native C++ Real-Time Telemetry Core...\n";
-    high_priority_safety_task();
-    std::ofstream logFile("qnx_blackbox.csv", std::ios::app);
-    logFile << "Timestamp_ms,RTOS_State,Priority_Level\n";
-    for(int i = 1; i <= 5; ++i) {
-        logFile << i * 100 << ",DETERMINISTIC_OK,20\n";
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    struct sched_param param;
+    param.sched_priority = 25;
+    pthread_setschedparam(pthread_self(), SCHED_RR, &param);
+    std::cout << "[QNX 8.0 RTOS KERNEL] Deterministic C++ Sensor Daemon Started (Priority: 25)\n";
+
+    while (true) {
+        int rpm = 1800 + (rand() % 3500);
+        int radar_dist = 8 + (rand() % 85); // Obstacle distance in meters
+        int latency_us = 4 + (rand() % 9);   // Ultra-low QNX microsecond latency
+
+        std::ofstream livePipe("rtos_live_pipe.txt");
+        livePipe << rpm << "," << radar_dist << "," << latency_us << "\n";
+        livePipe.close();
+
+        std::ofstream logFile("qnx_blackbox.csv", std::ios::app);
+        logFile << rpm << "," << radar_dist << "m," << latency_us << "us\n";
+        logFile.close();
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
     }
-    logFile.close();
-    std::cout << "[QNX RTOS CORE] Black-Box Telemetry verified & synced.\n";
     return 0;
 }
