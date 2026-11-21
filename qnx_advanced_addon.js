@@ -2354,3 +2354,98 @@ document.addEventListener("DOMContentLoaded", () => {
         if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("40 layer QNX 8.0 Ruby Imperium architecture verified at 100 percent.")); }
     };
 });
+
+// --- LAYER 41 (ASTRAL OVERLORD): BIOMETRIC ZEN CABIN THERAPY & AERO-WIND TURBINE ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-zen41")) return;
+    const l41 = document.createElement("div");
+    l41.style.cssText = "width:92%;max-width:800px;margin:15px auto 220px auto;padding:14px;background:#0f172a;border:1px solid #818cf8;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 145px rgba(129,140,248,0.6);";
+    l41.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#a5b4fc;">🌠 LAYER 41 (ASTRAL OVERLORD): BIOMETRIC ZEN CABIN & WIND-DUCT HARVESTER</strong>
+            <div>
+                <button id="btn-zen41" style="background:#4f46e5;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">🧘 ZEN CABIN</button>
+                <button id="btn-wind41" style="background:#0284c7;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">🌬️ WIND-DUCT +1.9kW</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px;text-align:left;">
+            <div style="flex:1.2;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="margin-bottom:5px;"><b>🧘 NEURO-WELLNESS:</b> <span id="zen41-stat" style="color:#4ade80;">CALM BIOMETRICS (68 BPM | ALPHA)</span></div>
+                <div style="margin-bottom:5px;"><b>🌬️ AERO-DUCT TURBINE:</b> <span id="wind41-stat" style="color:#38bdf8;">PASSIVE FLOW (+0.8 kW TRICKLE)</span></div>
+                <div><b>👑 ASTRAL EDITION:</b> <span style="color:#facc15;">41-LAYER QNX 8.0 ASTRAL OVERLORD</span></div>
+            </div>
+            <div style="flex:1;min-width:220px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;text-align:center;">
+                <div style="color:#94a3b8;font-size:10px;margin-bottom:4px;">ASTRAL OVERLORD STACK</div>
+                <div style="font-size:14px;font-weight:bold;color:#a5b4fc;">41 / 41 LAYERS ONLINE</div>
+                <div style="font-size:10px;color:#4ade80;margin-top:4px;">SUPREME DETERMINISTIC CORE</div>
+            </div>
+        </div>`;
+    document.body.appendChild(l41);
+
+    document.querySelectorAll("button").forEach(b => { if (b.innerText.includes("L40")) b.innerText = "⬇️ L41"; });
+
+    const logs = document.getElementById("kernel-logs");
+
+    document.getElementById("btn-zen41").onclick = () => {
+        const zs = document.getElementById("zen41-stat");
+        zs.innerText = "STRESS REDUCED! CHROMOTHERAPY + MASSAGE ON!"; zs.style.color = "#c084fc";
+        if (logs) { logs.innerHTML += `<div style="color:#a5b4fc;">[ZEN_41] Biometric stress spike detected; activated calming blue LED & seat therapy.</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Biometric stress relief cabin mode activated.")); }
+        setTimeout(() => { zs.innerText = "CALM BIOMETRICS (68 BPM | ALPHA)"; zs.style.color = "#4ade80"; }, 4000);
+    };
+
+    document.getElementById("btn-wind41").onclick = () => {
+        const ws = document.getElementById("wind41-stat");
+        ws.innerText = "HIGHWAY WIND TURBINE: +1.95 kW PEAK!"; ws.style.color = "#22d3ee";
+        if (logs) { logs.innerHTML += `<div style="color:#38bdf8;">[WIND_41] Venturi aero-duct micro-turbines harvesting +1.95kW from highway airflow.</div>`; logs.scrollTop = logs.scrollHeight; }
+        setTimeout(() => { ws.innerText = "PASSIVE FLOW (+0.8 kW TRICKLE)"; ws.style.color = "#38bdf8"; }, 4000);
+    };
+});
+
+// --- LAYER 42 (GALACTIC NEXUS): EYE-GAZE ACTUATOR & 4-DRONE ESCORT SWARM ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-gaze42")) return;
+    const l42 = document.createElement("div");
+    l42.style.cssText = "width:92%;max-width:800px;margin:15px auto 225px auto;padding:14px;background:#0f172a;border:2px solid #c084fc;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 150px rgba(192,132,252,0.65);";
+    l42.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#e879f9;">🌌 LAYER 42 (GALACTIC NEXUS): EYE-GAZE ACTUATOR & 4-DRONE ESCORT SWARM</strong>
+            <div>
+                <button id="btn-gaze42" style="background:#9333ea;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">🧬 EYE-GAZE CTRL</button>
+                <button id="btn-esc42" style="background:#0284c7;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">🛸 4-DRONE ESCORT</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px;text-align:left;">
+            <div style="flex:1.2;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="margin-bottom:5px;"><b>🧬 RETINAL EYE-GAZE:</b> <span id="gaze42-stat" style="color:#4ade80;">120Hz PUPIL-TRACKING LOCKED</span></div>
+                <div style="margin-bottom:5px;"><b>🛸 PERIMETER ESCORT:</b> <span id="esc42-stat" style="color:#38bdf8;">4 QUAD-DRONES DOCKED (READY)</span></div>
+                <div><b>👑 ULTIMATE ANSWER:</b> <span style="color:#facc15;">42-LAYER QNX 8.0 GALACTIC NEXUS</span></div>
+            </div>
+            <div style="flex:1;min-width:220px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;text-align:center;">
+                <div style="color:#94a3b8;font-size:10px;margin-bottom:4px;">ULTIMATE ARCHITECTURE STACK</div>
+                <div style="font-size:14px;font-weight:bold;color:#e879f9;">42 / 42 LAYERS ONLINE</div>
+                <div style="font-size:10px;color:#4ade80;margin-top:4px;">UNSTOPPABLE QNX 8.0 CORE</div>
+            </div>
+        </div>`;
+    document.body.appendChild(l42);
+
+    document.querySelectorAll("button").forEach(b => { if (b.innerText.includes("L41")) b.innerText = "⬇️ L42"; });
+
+    const logs = document.getElementById("kernel-logs");
+
+    document.getElementById("btn-gaze42").onclick = () => {
+        const gs = document.getElementById("gaze42-stat");
+        gs.innerText = "GAZE-DWELL CAPTURED -> LANE-CHANGE EXEC!"; gs.style.color = "#e879f9";
+        if (logs) { logs.innerHTML += `<div style="color:#e879f9;">[GAZE_42] 120Hz infrared eye-tracker confirmed mirror-glance & initiated lane shift.</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Retinal eye gaze command confirmed.")); }
+        setTimeout(() => { gs.innerText = "120Hz PUPIL-TRACKING LOCKED"; gs.style.color = "#4ade80"; }, 4000);
+    };
+
+    document.getElementById("btn-esc42").onclick = () => {
+        const es = document.getElementById("esc42-stat");
+        es.innerText = "4 ESCORT DRONES AIRBORNE (360° HALO)!"; es.style.color = "#22d3ee";
+        if (logs) { logs.innerHTML += `<div style="color:#38bdf8;">[SWARM_42] 4 perimeter escort drones deployed with 360-degree floodlight halo.</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Four perimeter escort drones deployed.")); }
+        setTimeout(() => { es.innerText = "4 QUAD-DRONES DOCKED (READY)"; es.style.color = "#38bdf8"; }, 4000);
+    };
+});
