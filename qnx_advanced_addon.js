@@ -1057,3 +1057,65 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => { rs.innerText = "99.9999% (SIX-NINES)"; rs.style.color = "#fbbf24"; }, 5000);
     };
 });
+
+// --- LAYER 16 (SOVEREIGN): ACTIVE ANC DOME, LI-FI OPTICAL V2V & ACTIVE AERO MORPHING ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-anc")) return;
+    const l16 = document.createElement("div");
+    l16.style.cssText = "width:92%;max-width:800px;margin:15px auto 90px auto;padding:14px;background:#0f172a;border:1px solid #38bdf8;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 42px rgba(56,189,248,0.35);";
+    l16.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#38bdf8;">👑 LAYER 16 (SOVEREIGN): ANC SILENCE DOME, LI-FI V2V & ACTIVE AERO</strong>
+            <div>
+                <button id="btn-anc" style="background:#0284c7;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">🔇 ANC DOME</button>
+                <button id="btn-lifi" style="background:#7c3aed;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">💡 LI-FI 10Gbps</button>
+                <button id="btn-aero" style="background:#e11d48;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">🪽 AERO MORPH</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px;text-align:left;">
+            <div style="flex:1.2;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="margin-bottom:5px;"><b>🔇 CABIN ACOUSTICS:</b> <span id="anc-stat" style="color:#4ade80;">STANDARD (54 dB ROAD NOISE)</span></div>
+                <div style="margin-bottom:5px;"><b>💡 OPTICAL LI-FI:</b> <span id="lifi-stat" style="color:#38bdf8;">LED MATRIX STANDBY (10 Gbps READY)</span></div>
+                <div><b>🪽 ACTIVE AERO/TIRE:</b> <span id="aero-stat" style="color:#facc15;">ECO-DRAG (Cd 0.19 | 36 PSI)</span></div>
+            </div>
+            <div style="flex:1;min-width:220px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;text-align:center;">
+                <div style="color:#94a3b8;font-size:10px;margin-bottom:4px;">SOVEREIGN EDITION STATUS</div>
+                <div style="font-size:15px;font-weight:bold;color:#38bdf8;" id="sov-badge">16-LAYER SOVEREIGN APEX</div>
+                <div style="font-size:10px;color:#4ade80;margin-top:4px;">QNX 8.0 HYPER-DETERMINISTIC CORE</div>
+            </div>
+        </div>`;
+    document.body.appendChild(l16);
+
+    const logs = document.getElementById("kernel-logs");
+    let ancOn = false, lifiOn = false, aeroOn = false;
+
+    document.getElementById("btn-anc").onclick = () => {
+        ancOn = !ancOn;
+        const as = document.getElementById("anc-stat");
+        if (ancOn) {
+            as.innerText = "ANTI-PHASE DOME LOCKED (28 dB SILENT!)"; as.style.color = "#22d3ee";
+            if (logs) { logs.innerHTML += `<div style="color:#38bdf8;">[ANC_DSP] Anti-phase acoustic wave cancellation active (<0.2ms latency).</div>`; logs.scrollTop = logs.scrollHeight; }
+            if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Active acoustic noise cancellation dome engaged.")); }
+        } else { as.innerText = "STANDARD (54 dB ROAD NOISE)"; as.style.color = "#4ade80"; }
+    };
+
+    document.getElementById("btn-lifi").onclick = () => {
+        lifiOn = !lifiOn;
+        const ls = document.getElementById("lifi-stat");
+        if (lifiOn) {
+            ls.innerText = "OPTICAL BEAM LOCKED: 10.4 Gbps V2V!"; ls.style.color = "#c084fc";
+            if (logs) { logs.innerHTML += `<div style="color:#c084fc;">[LIFI_OPT] Headlight photonic transceiver streaming V2V telemetry at 10.4 Gbps.</div>`; logs.scrollTop = logs.scrollHeight; }
+            if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Optical Li-Fi vehicle to vehicle link locked at 10 gigabits per second.")); }
+        } else { ls.innerText = "LED MATRIX STANDBY (10 Gbps READY)"; ls.style.color = "#38bdf8"; }
+    };
+
+    document.getElementById("btn-aero").onclick = () => {
+        aeroOn = !aeroOn;
+        const ars = document.getElementById("aero-stat");
+        if (aeroOn) {
+            ars.innerText = "TRACK WING +420kg DOWNFORCE | 31 PSI"; ars.style.color = "#fb7185";
+            if (logs) { logs.innerHTML += `<div style="color:#fb7185;">[AERO_MORPH] Active rear spoiler deployed (+420kg downforce) & tire patch widened.</div>`; logs.scrollTop = logs.scrollHeight; }
+            if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Active aerodynamic downforce and tire grip morphing engaged.")); }
+        } else { ars.innerText = "ECO-DRAG (Cd 0.19 | 36 PSI)"; ars.style.color = "#facc15"; }
+    };
+});
