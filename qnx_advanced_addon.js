@@ -675,3 +675,147 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => { rs.innerText = "BRAKES 96% | INV 99%"; rs.style.color = "#38bdf8"; }, 4500);
     };
 });
+
+// --- LAYER 11 (GENESIS): 360 LIDAR POINT-CLOUD, NEUROMORPHIC SNN & SCOUT DRONE ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-drone")) return;
+    const l11 = document.createElement("div");
+    l11.style.cssText = "width:92%;max-width:800px;margin:15px auto 55px auto;padding:14px;background:#0f172a;border:1px solid #06b6d4;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 30px rgba(6,182,212,0.25);";
+    l11.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#22d3ee;">🌌 LAYER 11 (GENESIS): 360° LIDAR POINT-CLOUD, SNN & SCOUT DRONE</strong>
+            <div>
+                <button id="btn-drone" style="background:#0891b2;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">🚁 LAUNCH SCOUT DRONE</button>
+                <button id="btn-snn" style="background:#4f46e5;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">⚡ SNN REFLEX BURST</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px;text-align:left;">
+            <canvas id="lidarCanvas" width="240" height="115" style="background:#020617;border:1px solid #1e293b;border-radius:8px;flex:1;min-width:220px;"></canvas>
+            <div style="flex:1.2;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="margin-bottom:5px;"><b>🧠 NEUROMORPHIC SNN:</b> <span id="snn-stat" style="color:#4ade80;">1.8W ULTRA-LOW PWR (0.15ms)</span></div>
+                <div style="margin-bottom:5px;"><b>🚁 AERIAL SCOUT UAV:</b> <span id="drone-stat" style="color:#38bdf8;">DOCKED ON ROOF POD (100% BAT)</span></div>
+                <div><b>🌐 360° POINT CLOUD:</b> <span style="color:#facc15;">1.28M PTS/SEC (64-BEAM LASER)</span></div>
+            </div>
+        </div>`;
+    document.body.appendChild(l11);
+
+    // Live 360-Degree Rotating LiDAR Point-Cloud Canvas
+    const pCan = document.getElementById("lidarCanvas"), pCtx = pCan.getContext("2d");
+    let sweep = 0;
+    function drawLidar() {
+        pCtx.fillStyle = "rgba(2, 6, 23, 0.25)";
+        pCtx.fillRect(0, 0, pCan.width, pCan.height);
+        sweep += 0.07;
+        const cx = 120, cy = 58;
+        // Laser Sweep Line
+        pCtx.strokeStyle = "#22d3ee"; pCtx.lineWidth = 1.5;
+        pCtx.beginPath(); pCtx.moveTo(cx, cy);
+        pCtx.lineTo(cx + Math.cos(sweep)*52, cy + Math.sin(sweep)*52); pCtx.stroke();
+        // Simulated Terrain & Object Laser Dots
+        for (let i = 0; i < 18; i++) {
+            const a = sweep - (i * 0.12);
+            const dist = 28 + Math.sin(a * 3) * 14;
+            pCtx.fillStyle = dist < 22 ? "#ef4444" : "#34d399";
+            pCtx.fillRect(cx + Math.cos(a)*dist, cy + Math.sin(a)*dist, 2, 2);
+        }
+        pCtx.fillStyle = "#94a3b8"; pCtx.font = "9px monospace";
+        pCtx.fillText("64-CHANNEL LIDAR SLAM", 8, 12);
+        requestAnimationFrame(drawLidar);
+    }
+    drawLidar();
+
+    const logs = document.getElementById("kernel-logs");
+    let droneLaunched = false;
+
+    document.getElementById("btn-drone").onclick = () => {
+        droneLaunched = !droneLaunched;
+        const ds = document.getElementById("drone-stat");
+        if (droneLaunched) {
+            ds.innerText = "AIRBORNE +500m AHEAD (MAPPING ROUTE)"; ds.style.color = "#facc15";
+            if (logs) { logs.innerHTML += `<div style="color:#22d3ee;">[UAV_SCOUT] Roof pod opened! Recon drone scanning +500m corridor ahead.</div>`; logs.scrollTop = logs.scrollHeight; }
+            if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Autonomous scout drone launched. Scanning traffic 500 meters ahead.")); }
+        } else {
+            ds.innerText = "DOCKED ON ROOF POD (100% BAT)"; ds.style.color = "#38bdf8";
+        }
+    };
+
+    document.getElementById("btn-snn").onclick = () => {
+        const ss = document.getElementById("snn-stat");
+        ss.innerText = "SPIKE BURST! 0.08ms EVASION REFLEX"; ss.style.color = "#c084fc";
+        if (logs) { logs.innerHTML += `<div style="color:#818cf8;">[SNN_CORE] Neuromorphic spike-train processed 40,000 synapses in 0.08ms.</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Neuromorphic reflex burst verified at 0.08 milliseconds.")); }
+        setTimeout(() => { ss.innerText = "1.8W ULTRA-LOW PWR (0.15ms)"; ss.style.color = "#4ade80"; }, 4000);
+    };
+});
+
+// --- LAYER 11 (GENESIS): 360 LIDAR POINT-CLOUD, NEUROMORPHIC SNN & SCOUT DRONE ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-drone")) return;
+    const l11 = document.createElement("div");
+    l11.style.cssText = "width:92%;max-width:800px;margin:15px auto 55px auto;padding:14px;background:#0f172a;border:1px solid #06b6d4;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 30px rgba(6,182,212,0.25);";
+    l11.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#22d3ee;">🌌 LAYER 11 (GENESIS): 360° LIDAR POINT-CLOUD, SNN & SCOUT DRONE</strong>
+            <div>
+                <button id="btn-drone" style="background:#0891b2;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">🚁 LAUNCH SCOUT DRONE</button>
+                <button id="btn-snn" style="background:#4f46e5;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">⚡ SNN REFLEX BURST</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px;text-align:left;">
+            <canvas id="lidarCanvas" width="240" height="115" style="background:#020617;border:1px solid #1e293b;border-radius:8px;flex:1;min-width:220px;"></canvas>
+            <div style="flex:1.2;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="margin-bottom:5px;"><b>🧠 NEUROMORPHIC SNN:</b> <span id="snn-stat" style="color:#4ade80;">1.8W ULTRA-LOW PWR (0.15ms)</span></div>
+                <div style="margin-bottom:5px;"><b>🚁 AERIAL SCOUT UAV:</b> <span id="drone-stat" style="color:#38bdf8;">DOCKED ON ROOF POD (100% BAT)</span></div>
+                <div><b>🌐 360° POINT CLOUD:</b> <span style="color:#facc15;">1.28M PTS/SEC (64-BEAM LASER)</span></div>
+            </div>
+        </div>`;
+    document.body.appendChild(l11);
+
+    // Live 360-Degree Rotating LiDAR Point-Cloud Canvas
+    const pCan = document.getElementById("lidarCanvas"), pCtx = pCan.getContext("2d");
+    let sweep = 0;
+    function drawLidar() {
+        pCtx.fillStyle = "rgba(2, 6, 23, 0.25)";
+        pCtx.fillRect(0, 0, pCan.width, pCan.height);
+        sweep += 0.07;
+        const cx = 120, cy = 58;
+        // Laser Sweep Line
+        pCtx.strokeStyle = "#22d3ee"; pCtx.lineWidth = 1.5;
+        pCtx.beginPath(); pCtx.moveTo(cx, cy);
+        pCtx.lineTo(cx + Math.cos(sweep)*52, cy + Math.sin(sweep)*52); pCtx.stroke();
+        // Simulated Terrain & Object Laser Dots
+        for (let i = 0; i < 18; i++) {
+            const a = sweep - (i * 0.12);
+            const dist = 28 + Math.sin(a * 3) * 14;
+            pCtx.fillStyle = dist < 22 ? "#ef4444" : "#34d399";
+            pCtx.fillRect(cx + Math.cos(a)*dist, cy + Math.sin(a)*dist, 2, 2);
+        }
+        pCtx.fillStyle = "#94a3b8"; pCtx.font = "9px monospace";
+        pCtx.fillText("64-CHANNEL LIDAR SLAM", 8, 12);
+        requestAnimationFrame(drawLidar);
+    }
+    drawLidar();
+
+    const logs = document.getElementById("kernel-logs");
+    let droneLaunched = false;
+
+    document.getElementById("btn-drone").onclick = () => {
+        droneLaunched = !droneLaunched;
+        const ds = document.getElementById("drone-stat");
+        if (droneLaunched) {
+            ds.innerText = "AIRBORNE +500m AHEAD (MAPPING ROUTE)"; ds.style.color = "#facc15";
+            if (logs) { logs.innerHTML += `<div style="color:#22d3ee;">[UAV_SCOUT] Roof pod opened! Recon drone scanning +500m corridor ahead.</div>`; logs.scrollTop = logs.scrollHeight; }
+            if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Autonomous scout drone launched. Scanning traffic 500 meters ahead.")); }
+        } else {
+            ds.innerText = "DOCKED ON ROOF POD (100% BAT)"; ds.style.color = "#38bdf8";
+        }
+    };
+
+    document.getElementById("btn-snn").onclick = () => {
+        const ss = document.getElementById("snn-stat");
+        ss.innerText = "SPIKE BURST! 0.08ms EVASION REFLEX"; ss.style.color = "#c084fc";
+        if (logs) { logs.innerHTML += `<div style="color:#818cf8;">[SNN_CORE] Neuromorphic spike-train processed 40,000 synapses in 0.08ms.</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Neuromorphic reflex burst verified at 0.08 milliseconds.")); }
+        setTimeout(() => { ss.innerText = "1.8W ULTRA-LOW PWR (0.15ms)"; ss.style.color = "#4ade80"; }, 4000);
+    };
+});
