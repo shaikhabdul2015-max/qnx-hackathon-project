@@ -1354,3 +1354,63 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => { cs.innerText = "20 / 20 LAYERS ONLINE"; cs.style.color = "#facc15"; }, 5000);
     };
 });
+
+// --- LAYER 21 (ASCENSION): SOLAR-SKIN HARVEST, QUANTUM MIRROR & JUDGE Q&A CO-PILOT ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-solar")) return;
+    const l21 = document.createElement("div");
+    l21.style.cssText = "width:92%;max-width:800px;margin:15px auto 115px auto;padding:14px;background:#0f172a;border:1px solid #c084fc;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 58px rgba(192,132,252,0.4);";
+    l21.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#d8b4fe;">🌌 LAYER 21 (ASCENSION): SOLAR-SKIN, QUANTUM MIRROR & JUDGE Q&A</strong>
+            <div>
+                <button id="btn-solar" style="background:#d97706;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">☀️ SOLAR SKIN</button>
+                <button id="btn-qmir" style="background:#7c3aed;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">⚛️ Q-MIRROR</button>
+                <button id="btn-qa" style="background:#0284c7;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">🎓 JUDGE Q&A</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px;text-align:left;">
+            <div style="flex:1.2;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="margin-bottom:5px;"><b>☀️ PEROVSKITE SKIN:</b> <span id="sol-stat" style="color:#4ade80;">TRICKLE ACTIVE (+1.1 kW | 34% EFF)</span></div>
+                <div style="margin-bottom:5px;"><b>⚛️ QUANTUM MIRROR:</b> <span id="qmir-stat" style="color:#38bdf8;">TWIN SYNCED (0.01ms DELTA)</span></div>
+                <div><b>👑 APEX EDITION:</b> <span style="color:#facc15;">21-LAYER QNX 8.0 ASCENSION</span></div>
+            </div>
+            <div style="flex:1;min-width:220px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;text-align:center;">
+                <div style="color:#94a3b8;font-size:10px;margin-bottom:4px;">LIVE KERNEL DETERMINISM</div>
+                <div style="font-size:14px;font-weight:bold;color:#d8b4fe;">21 / 21 LAYERS ACTIVE</div>
+                <div style="font-size:10px;color:#4ade80;margin-top:4px;">ZERO-JITTER MICROKERNEL</div>
+            </div>
+        </div>
+        <div id="qa-box" style="display:none;margin-top:10px;background:#020617;border:1px dashed #c084fc;border-radius:8px;padding:10px;font-size:11px;text-align:left;color:#e2e8f0;"></div>`;
+    document.body.appendChild(l21);
+
+    document.querySelectorAll("button").forEach(b => { if (b.innerText.includes("L20")) b.innerText = "⬇️ L21"; });
+
+    const logs = document.getElementById("kernel-logs");
+    const qas = [
+        "<b>Q: Why QNX 8.0 instead of Embedded Linux?</b><br><b>A:</b> Unlike monolithic Linux, QNX is a true microkernel where drivers run in isolated user-space. If a driver crashes, HAM respawns it in 11ms without kernel panic.",
+        "<b>Q: How does Adaptive Partitioning (APS) guarantee safety?</b><br><b>A:</b> APS reserves a hard 90% CPU budget for Prio-9u safety threads during emergencies while allowing idle CPU sharing during normal driving.",
+        "<b>Q: How is this protected against future cyber threats?</b><br><b>A:</b> It combines HMAC-SHA256 Crypto-CAN firewalling with Post-Quantum CRYSTALS-Kyber-1024 key rotation and A/B zero-downtime OTA."
+    ];
+    let qaIdx = 0;
+
+    document.getElementById("btn-solar").onclick = () => {
+        const ss = document.getElementById("sol-stat");
+        ss.innerText = "PEAK SOLAR HARVEST: +2.8 kW (+52 km/day)!"; ss.style.color = "#facc15";
+        if (logs) { logs.innerHTML += `<div style="color:#facc15;">[SOLAR_21] Perovskite body panels generating +2.8kW peak solar charge.</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Perovskite solar skin harvesting at peak 2.8 kilowatts.")); }
+    };
+
+    document.getElementById("btn-qmir").onclick = () => {
+        const qm = document.getElementById("qmir-stat");
+        qm.innerText = "INSTANTANEOUS CLOUD SNAPSHOT SEALED!"; qm.style.color = "#c084fc";
+        if (logs) { logs.innerHTML += `<div style="color:#c084fc;">[Q_MIRROR] Zero-latency Digital Twin state mirrored to cloud vault.</div>`; logs.scrollTop = logs.scrollHeight; }
+    };
+
+    document.getElementById("btn-qa").onclick = () => {
+        const box = document.getElementById("qa-box");
+        box.style.display = "block";
+        box.innerHTML = qas[qaIdx];
+        qaIdx = (qaIdx + 1) % qas.length;
+    };
+});

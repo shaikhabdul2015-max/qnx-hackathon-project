@@ -1,6 +1,6 @@
-# 🚗 QNX 8.0 Deterministic Sensor Fusion & Autonomous Safety Cockpit (20-Layer Pantheon Ultimate Architecture)
+# 🚗 QNX 8.0 Deterministic Sensor Fusion & Autonomous Safety Cockpit (21-Layer Ascension Apex Architecture)
 
-An industrial-grade, deterministic automotive cockpit and microkernel simulation built with **C++ (Multi-Threaded RTOS Core)**, **Python (Socket IPC & Telemetry Bridge)**, and a **20-Layer Pantheon Ultimate Interactive Web Cockpit**.
+An industrial-grade, deterministic automotive cockpit and microkernel simulation built with **C++ (Multi-Threaded RTOS Core)**, **Python (Socket IPC & Telemetry Bridge)**, and a **21-Layer Ascension Apex Interactive Web Cockpit**.
 
 ---
 
@@ -9,14 +9,14 @@ An industrial-grade, deterministic automotive cockpit and microkernel simulation
 ```mermaid
 graph LR
     A[C++ RTOS Core<br/>Multi-Threaded Kernel] -->|Socket IPC & CSV| B[Python Telemetry Server<br/>UltraQNXHandler :8080]
-    B -->|Real-Time Stream| C[20-Layer Pantheon Ultimate QNX 8.0 Cockpit :8000]
+    B -->|Real-Time Stream| C[21-Layer Ascension Apex QNX 8.0 Cockpit :8000]
     C -->|Control & Faults| B
     B -->|Deterministic Commands| A
 ```
 
 ---
 
-## ⚡ 20-Layer Pantheon Ultimate Enterprise & Safety Stack
+## ⚡ 21-Layer Ascension Apex Enterprise & Safety Stack
 
 1. **Deterministic C++ Microkernel Core & Socket IPC**
    * Sub-10µs deterministic latency with live **RTOS Jitter Oscilloscope**.
