@@ -2449,3 +2449,50 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => { es.innerText = "4 QUAD-DRONES DOCKED (READY)"; es.style.color = "#38bdf8"; }, 4000);
     };
 });
+
+// --- LAYER 43 (SINGULARITY): COLD-GAS MICRO-THRUSTERS & 25KM GREEN-WAVE HARMONIZER ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-thr43")) return;
+    const l43 = document.createElement("div");
+    l43.style.cssText = "width:92%;max-width:800px;margin:15px auto 230px auto;padding:14px;background:#0f172a;border:1px solid #38bdf8;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 155px rgba(56,189,248,0.65);";
+    l43.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#7dd3fc;">🌀 LAYER 43 (SINGULARITY): COLD-GAS MICRO-THRUSTER & 25KM GREEN-WAVE AI</strong>
+            <div>
+                <button id="btn-thr43" style="background:#0284c7;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">🚀 MICRO-THRUST</button>
+                <button id="btn-gw43" style="background:#16a34a;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">🌊 25KM GREEN-WAVE</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px;text-align:left;">
+            <div style="flex:1.2;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="margin-bottom:5px;"><b>🚀 TRACTION THRUSTER:</b> <span id="thr43-stat" style="color:#4ade80;">NITROGEN NOZZLES ARMED (0.12s)</span></div>
+                <div style="margin-bottom:5px;"><b>🌊 CITY SIGNAL MESH:</b> <span id="gw43-stat" style="color:#38bdf8;">V2I CORRIDOR PACING ACTIVE</span></div>
+                <div><b>👑 SINGULARITY TIER:</b> <span style="color:#facc15;">43-LAYER QNX 8.0 SINGULARITY APEX</span></div>
+            </div>
+            <div style="flex:1;min-width:220px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;text-align:center;">
+                <div style="color:#94a3b8;font-size:10px;margin-bottom:4px;">SINGULARITY ARCHITECTURE STACK</div>
+                <div style="font-size:14px;font-weight:bold;color:#7dd3fc;">43 / 43 LAYERS ONLINE</div>
+                <div style="font-size:10px;color:#4ade80;margin-top:4px;">PINNACLE DETERMINISTIC OS</div>
+            </div>
+        </div>`;
+    document.body.appendChild(l43);
+
+    document.querySelectorAll("button").forEach(b => { if (b.innerText.includes("L42")) b.innerText = "⬇️ L43"; });
+
+    const logs = document.getElementById("kernel-logs");
+
+    document.getElementById("btn-thr43").onclick = () => {
+        const ts = document.getElementById("thr43-stat");
+        ts.innerText = "DOWNFORCE PULSE FIRED! ZERO SLIP LOCKED!"; ts.style.color = "#22d3ee";
+        if (logs) { logs.innerHTML += `<div style="color:#38bdf8;">[THR_43] Cold-gas micro-thrusters fired downward pulse to restore 100% traction.</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Cold gas micro thrusters fired. Traction restored.")); }
+        setTimeout(() => { ts.innerText = "NITROGEN NOZZLES ARMED (0.12s)"; ts.style.color = "#4ade80"; }, 4000);
+    };
+
+    document.getElementById("btn-gw43").onclick = () => {
+        const gs = document.getElementById("gw43-stat");
+        gs.innerText = "25.0km NON-STOP GREEN WAVE LOCKED!"; gs.style.color = "#4ade80";
+        if (logs) { logs.innerHTML += `<div style="color:#4ade80;">[GW_43] Synchronized speed with 48 city signals for non-stop 25km green wave.</div>`; logs.scrollTop = logs.scrollHeight; }
+        setTimeout(() => { gs.innerText = "V2I CORRIDOR PACING ACTIVE"; gs.style.color = "#38bdf8"; }, 4000);
+    };
+});
