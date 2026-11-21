@@ -1718,3 +1718,50 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => { cs.innerText = "NOMINAL (680 Nm | 98.2% EFF)"; cs.style.color = "#38bdf8"; }, 4000);
     };
 });
+
+// --- LAYER 28 (PARAGON): IRIS+VOICE BIOMETRIC KEY & SHAPE-MEMORY TIRE TREAD MORPH ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-iris")) return;
+    const l28 = document.createElement("div");
+    l28.style.cssText = "width:92%;max-width:800px;margin:15px auto 150px auto;padding:14px;background:#0f172a;border:1px solid #38bdf8;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 85px rgba(56,189,248,0.48);";
+    l28.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#38bdf8;">💎 LAYER 28 (PARAGON): IRIS+VOICE BIOMETRIC KEY & SMA TIRE-TREAD MORPH</strong>
+            <div>
+                <button id="btn-iris" style="background:#0284c7;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">👁️ IRIS+VOICE KEY</button>
+                <button id="btn-tread" style="background:#0d9488;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">🛞 MORPH TREAD</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px;text-align:left;">
+            <div style="flex:1.2;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="margin-bottom:5px;"><b>👁️ BIOMETRIC IGNITION:</b> <span id="iris-stat" style="color:#4ade80;">IRIS + VOICEPRINT LOCKED (0.3s)</span></div>
+                <div style="margin-bottom:5px;"><b>🛞 SMA TIRE RUBBER:</b> <span id="tread-stat" style="color:#38bdf8;">DRY SLICK PROFILE (1.8mm GROOVE)</span></div>
+                <div><b>👑 PARAGON TIER:</b> <span style="color:#facc15;">28-LAYER QNX 8.0 PARAGON APEX</span></div>
+            </div>
+            <div style="flex:1;min-width:220px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;text-align:center;">
+                <div style="color:#94a3b8;font-size:10px;margin-bottom:4px;">PARAGON ARCHITECTURE STACK</div>
+                <div style="font-size:14px;font-weight:bold;color:#38bdf8;">28 / 28 LAYERS ONLINE</div>
+                <div style="font-size:10px;color:#4ade80;margin-top:4px;">PINNACLE AUTOMOTIVE RTOS</div>
+            </div>
+        </div>`;
+    document.body.appendChild(l28);
+
+    document.querySelectorAll("button").forEach(b => { if (b.innerText.includes("L27")) b.innerText = "⬇️ L28"; });
+
+    const logs = document.getElementById("kernel-logs");
+
+    document.getElementById("btn-iris").onclick = () => {
+        const is = document.getElementById("iris-stat");
+        is.innerText = "RETINA + VOCAL HASH VERIFIED (0.28s)!"; is.style.color = "#22d3ee";
+        if (logs) { logs.innerHTML += `<div style="color:#38bdf8;">[BIO_28] Dual Iris & Voiceprint cryptographic key verified in 0.28s.</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Iris and voiceprint biometric key verified.")); }
+        setTimeout(() => { is.innerText = "IRIS + VOICEPRINT LOCKED (0.3s)"; is.style.color = "#4ade80"; }, 4000);
+    };
+
+    document.getElementById("btn-tread").onclick = () => {
+        const ts = document.getElementById("tread-stat");
+        ts.innerText = "WET MONSOON GROOVES: 4.8mm EXPANDED!"; ts.style.color = "#facc15";
+        if (logs) { logs.innerHTML += `<div style="color:#2dd4bf;">[SMA_28] Shape-memory alloy tire tread expanded to 4.8mm wet-drainage channels.</div>`; logs.scrollTop = logs.scrollHeight; }
+        setTimeout(() => { ts.innerText = "DRY SLICK PROFILE (1.8mm GROOVE)"; ts.style.color = "#38bdf8"; }, 4000);
+    };
+});
