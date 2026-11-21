@@ -314,3 +314,89 @@ document.addEventListener("DOMContentLoaded", () => {
         const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "ISO26262_ASILD_Audit.txt"; a.click();
     };
 });
+
+// --- LAYER 6: AI VISION HUD, 8-CELL THERMAL MATRIX & AUTO JUDGE DEMO ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-autodemo")) return;
+    const l6 = document.createElement("div");
+    l6.style.cssText = "width:92%;max-width:800px;margin:15px auto 30px auto;padding:14px;background:#0f172a;border:1px solid #38bdf8;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 20px rgba(56,189,248,0.15);";
+    l6.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#38bdf8;">👁️ AI VISION LANE HUD & EV BATTERY CELL MATRIX</strong>
+            <button id="btn-autodemo" style="background:linear-gradient(90deg,#ec4899,#8b5cf6);color:#fff;border:none;padding:6px 12px;border-radius:5px;font-size:11px;font-weight:bold;cursor:pointer;">🎬 RUN AUTO-JUDGE DEMO</button>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+            <canvas id="visionCanvas" width="270" height="125" style="background:#020617;border:1px solid #1e293b;border-radius:8px;flex:1.2;min-width:240px;"></canvas>
+            <div style="flex:1;min-width:230px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;text-align:left;">
+                <div style="font-size:11px;color:#94a3b8;margin-bottom:6px;"><b>🔋 8-CELL HV BATTERY THERMAL MATRIX:</b></div>
+                <div id="cell-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:5px;text-align:center;font-size:10px;"></div>
+                <div style="font-size:10px;color:#38bdf8;margin-top:8px;" id="cool-valve">❄️ LIQUID COOLING LOOP: NOMINAL (35%)</div>
+            </div>
+        </div>`;
+    document.body.appendChild(l6);
+
+    // 8-Cell EV Battery Heatmap Updater
+    const cellGrid = document.getElementById("cell-grid");
+    let faultHeat = false;
+    setInterval(() => {
+        let html = "";
+        for (let i = 1; i <= 8; i++) {
+            const temp = (faultHeat && i === 6) ? (76 + Math.random()*5).toFixed(1) : (34 + Math.random()*3).toFixed(1);
+            const hot = parseFloat(temp) > 55;
+            html += `<div style="background:${hot ? '#7f1d1d' : '#064e3b'};border:1px solid ${hot ? '#ef4444' : '#10b981'};padding:5px 2px;border-radius:4px;color:#fff;">C${i}<br><b>${temp}°</b></div>`;
+        }
+        cellGrid.innerHTML = html;
+        const valve = document.getElementById("cool-valve");
+        if (faultHeat) { valve.innerText = "🚨 ACTIVE CRYO-COOLING VALVE: 100% OPEN"; valve.style.color = "#f87171"; }
+        else { valve.innerText = "❄️ LIQUID COOLING LOOP: NOMINAL (35%)"; valve.style.color = "#38bdf8"; }
+    }, 600);
+
+    const origSend = window.sendCommand;
+    window.sendCommand = function(m) {
+        if (typeof origSend === "function") origSend(m);
+        faultHeat = (m === "INJECT_FAULT");
+    };
+
+    // AI Computer Vision Road & Bounding Box HUD
+    const vCan = document.getElementById("visionCanvas"), vCtx = vCan.getContext("2d");
+    let roadY = 0;
+    function drawVision() {
+        vCtx.clearRect(0, 0, vCan.width, vCan.height);
+        roadY = (roadY + 2.5) % 24;
+        // Perspective Road Lanes
+        vCtx.strokeStyle = "#38bdf8"; vCtx.lineWidth = 1.5;
+        vCtx.beginPath(); vCtx.moveTo(95, 35); vCtx.lineTo(25, 125); vCtx.stroke();
+        vCtx.beginPath(); vCtx.moveTo(175, 35); vCtx.lineTo(245, 125); vCtx.stroke();
+        // Dashed Center Line
+        vCtx.strokeStyle = "#64748b"; vCtx.setLineDash([8, 8]); vCtx.lineDashOffset = -roadY;
+        vCtx.beginPath(); vCtx.moveTo(135, 35); vCtx.lineTo(135, 125); vCtx.stroke();
+        vCtx.setLineDash([]);
+        // AI Object Detection Bounding Box
+        const boxColor = faultHeat ? "#ef4444" : "#4ade80";
+        vCtx.strokeStyle = boxColor; vCtx.lineWidth = 1.5;
+        vCtx.strokeRect(112, 48, 46, 30);
+        vCtx.fillStyle = boxColor; vCtx.font = "9px monospace";
+        vCtx.fillText(faultHeat ? "OBJ: 11.2m [TTC 0.8s]" : "VEH: 28.4m [99.4%]", 88, 43);
+        vCtx.fillStyle = "#94a3b8"; vCtx.fillText("QNX VISION NN: 60 FPS", 8, 13);
+        requestAnimationFrame(drawVision);
+    }
+    drawVision();
+
+    // One-Click Automated Demo Sequence for Judges
+    document.getElementById("btn-autodemo").onclick = () => {
+        const btn = document.getElementById("btn-autodemo");
+        btn.innerText = "⏳ DEMO RUNNING...";
+        if ("speechSynthesis" in window) {
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.speak(new SpeechSynthesisUtterance("Initiating QNX 8.0 full autonomous safety demonstration."));
+        }
+        setTimeout(() => { if (window.sendCommand) window.sendCommand("SPORT"); }, 1000);
+        setTimeout(() => { const b = document.getElementById("btn-platoon"); if (b) b.click(); }, 3500);
+        setTimeout(() => { const b = document.getElementById("btn-cyber"); if (b) b.click(); }, 6500);
+        setTimeout(() => { const b = document.getElementById("btn-lockstep"); if (b) b.click(); }, 9500);
+        setTimeout(() => {
+            if (window.sendCommand) window.sendCommand("ECO");
+            btn.innerText = "🎬 RUN AUTO-JUDGE DEMO";
+        }, 13000);
+    };
+});
