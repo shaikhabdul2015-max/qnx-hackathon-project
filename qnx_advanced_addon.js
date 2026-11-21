@@ -880,3 +880,68 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 450);
     };
 });
+
+// --- LAYER 13 (COSMOS): LEO SATELLITE FAILOVER, H2-HYBRID POWERTRAIN & IMMUTABLE HASH LEDGER ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-leo")) return;
+    const l13 = document.createElement("div");
+    l13.style.cssText = "width:92%;max-width:800px;margin:15px auto 65px auto;padding:14px;background:#0f172a;border:1px solid #8b5cf6;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 35px rgba(139,92,246,0.3);";
+    l13.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#a78bfa;">🪐 LAYER 13 (COSMOS): LEO SAT-LINK, H2-HYBRID & SHA3 BLACKBOX LEDGER</strong>
+            <div>
+                <button id="btn-leo" style="background:#7c3aed;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">🛰️ 5G BLACKOUT TEST</button>
+                <button id="btn-h2" style="background:#0284c7;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">💧 H2 BOOST</button>
+                <button id="btn-hash" style="background:#059669;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">🔗 SEAL SHA3</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px;text-align:left;">
+            <div style="flex:1.2;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="margin-bottom:5px;"><b>📡 BACKHAUL LINK:</b> <span id="leo-stat" style="color:#4ade80;">5G-URLLC (4ms) + LEO STANDBY</span></div>
+                <div style="margin-bottom:5px;"><b>💧 POWERTRAIN:</b> <span id="h2-stat" style="color:#38bdf8;">SOLID-STATE EV (640 km RANGE)</span></div>
+                <div><b>🔗 SHA3-512 SEAL:</b> <span id="sha-hash" style="color:#facc15;">0x9F82C4E1...B70A (VERIFIED)</span></div>
+            </div>
+            <div style="flex:1;min-width:220px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;text-align:center;">
+                <div style="color:#94a3b8;font-size:10px;margin-bottom:4px;">ORBITAL CONSTELLATION MESH</div>
+                <div style="font-size:15px;font-weight:bold;color:#a78bfa;" id="leo-orb">LEO-SAT #412 (550 km ALT)</div>
+                <div style="font-size:10px;color:#4ade80;margin-top:4px;">13-LAYER COSMOS STACK ACTIVE</div>
+            </div>
+        </div>`;
+    document.body.appendChild(l13);
+
+    const logs = document.getElementById("kernel-logs");
+    let leoActive = false, h2Active = false;
+
+    document.getElementById("btn-leo").onclick = () => {
+        leoActive = !leoActive;
+        const ls = document.getElementById("leo-stat"), orb = document.getElementById("leo-orb");
+        if (leoActive) {
+            ls.innerText = "5G LOST! LEO SATELLITE DIRECT (18ms)"; ls.style.color = "#facc15";
+            orb.innerText = "UPLINK LOCKED: 1.2 Gbps Ka-BAND"; orb.style.color = "#38bdf8";
+            if (logs) { logs.innerHTML += `<div style="color:#a78bfa;">[SAT_NET] Cellular tower lost! Seamless failover to LEO Orbital Mesh in 18ms.</div>`; logs.scrollTop = logs.scrollHeight; }
+            if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("5G signal lost. Direct to satellite LEO failover active.")); }
+        } else {
+            ls.innerText = "5G-URLLC (4ms) + LEO STANDBY"; ls.style.color = "#4ade80";
+            orb.innerText = "LEO-SAT #412 (550 km ALT)"; orb.style.color = "#a78bfa";
+        }
+    };
+
+    document.getElementById("btn-h2").onclick = () => {
+        h2Active = !h2Active;
+        const hs = document.getElementById("h2-stat");
+        if (h2Active) {
+            hs.innerText = "H2 FUEL-CELL + EV (1,420 km RANGE!)"; hs.style.color = "#22d3ee";
+            if (logs) { logs.innerHTML += `<div style="color:#38bdf8;">[H2_HYB] Hydrogen Fuel-Cell range extender online. Range boosted to 1,420 km.</div>`; logs.scrollTop = logs.scrollHeight; }
+            if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Hydrogen fuel cell hybrid boost engaged. Range extended to 1420 kilometers.")); }
+        } else {
+            hs.innerText = "SOLID-STATE EV (640 km RANGE)"; hs.style.color = "#38bdf8";
+        }
+    };
+
+    document.getElementById("btn-hash").onclick = () => {
+        const h1 = Math.random().toString(16).substring(2, 10).toUpperCase();
+        const h2 = Math.random().toString(16).substring(2, 6).toUpperCase();
+        document.getElementById("sha-hash").innerText = `0x${h1}...${h2} (IMMUTABLE)`;
+        if (logs) { logs.innerHTML += `<div style="color:#34d399;">[LEDGER] Blackbox flight block sealed with SHA3-512 hash: 0x${h1}...${h2}</div>`; logs.scrollTop = logs.scrollHeight; }
+    };
+});
