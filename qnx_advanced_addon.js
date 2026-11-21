@@ -1765,3 +1765,50 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => { ts.innerText = "DRY SLICK PROFILE (1.8mm GROOVE)"; ts.style.color = "#38bdf8"; }, 4000);
     };
 });
+
+// --- LAYER 29 (VALKYRIE): ULTRASONIC WILDLIFE SHIELD & EDDY-CURRENT MAG-BRAKE ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-sonic")) return;
+    const l29 = document.createElement("div");
+    l29.style.cssText = "width:92%;max-width:800px;margin:15px auto 155px auto;padding:14px;background:#0f172a;border:1px solid #a855f7;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 88px rgba(168,85,247,0.48);";
+    l29.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#c084fc;">⚔️ LAYER 29 (VALKYRIE): ULTRASONIC WILDLIFE SHIELD & EDDY MAG-BRAKE</strong>
+            <div>
+                <button id="btn-sonic" style="background:#9333ea;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">🦌 SONIC SHIELD</button>
+                <button id="btn-mag" style="background:#0284c7;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">🧲 MAG-BRAKE</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px;text-align:left;">
+            <div style="flex:1.2;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="margin-bottom:5px;"><b>🦌 ACOUSTIC BEAM:</b> <span id="sonic-stat" style="color:#4ade80;">DIRECTIONAL ULTRASONIC STANDBY</span></div>
+                <div style="margin-bottom:5px;"><b>🧲 BRAKE-BY-WIRE:</b> <span id="mag-stat" style="color:#38bdf8;">EDDY-CURRENT ZERO-WEAR READY</span></div>
+                <div><b>👑 VALKYRIE TIER:</b> <span id="valk-tier" style="color:#facc15;">29-LAYER QNX 8.0 VALKYRIE APEX</span></div>
+            </div>
+            <div style="flex:1;min-width:220px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;text-align:center;">
+                <div style="color:#94a3b8;font-size:10px;margin-bottom:4px;">VALKYRIE ARCHITECTURE STACK</div>
+                <div style="font-size:14px;font-weight:bold;color:#c084fc;">29 / 29 LAYERS ONLINE</div>
+                <div style="font-size:10px;color:#4ade80;margin-top:4px;">ZERO-LATENCY SAFETY KERNEL</div>
+            </div>
+        </div>`;
+    document.body.appendChild(l29);
+
+    document.querySelectorAll("button").forEach(b => { if (b.innerText.includes("L28")) b.innerText = "⬇️ L29"; });
+
+    const logs = document.getElementById("kernel-logs");
+
+    document.getElementById("btn-sonic").onclick = () => {
+        const ss = document.getElementById("sonic-stat");
+        ss.innerText = "24kHz WILDLIFE DETERRENT BEAM ACTIVE!"; ss.style.color = "#c084fc";
+        if (logs) { logs.innerHTML += `<div style="color:#c084fc;">[SONIC_29] Directional 24kHz ultrasonic beam cleared highway wildlife zone.</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Directional ultrasonic wildlife safety beam activated.")); }
+        setTimeout(() => { ss.innerText = "DIRECTIONAL ULTRASONIC STANDBY"; ss.style.color = "#4ade80"; }, 4000);
+    };
+
+    document.getElementById("btn-mag").onclick = () => {
+        const ms = document.getElementById("mag-stat");
+        ms.innerText = "EDDY-CURRENT LOCK: 0.18s FRICTIONLESS STOP!"; ms.style.color = "#22d3ee";
+        if (logs) { logs.innerHTML += `<div style="color:#38bdf8;">[MAG_29] Frictionless electromagnetic brake-by-wire engaged (0 brake dust).</div>`; logs.scrollTop = logs.scrollHeight; }
+        setTimeout(() => { ms.innerText = "EDDY-CURRENT ZERO-WEAR READY"; ms.style.color = "#38bdf8"; }, 4000);
+    };
+});
