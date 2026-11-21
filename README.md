@@ -1,6 +1,6 @@
-# 🚗 QNX 8.0 Deterministic Sensor Fusion & Autonomous Safety Cockpit (17-Layer Celestial Apex Architecture)
+# 🚗 QNX 8.0 Deterministic Sensor Fusion & Autonomous Safety Cockpit (18-Layer Eterna Apex Architecture)
 
-An industrial-grade, deterministic automotive cockpit and microkernel simulation built with **C++ (Multi-Threaded RTOS Core)**, **Python (Socket IPC & Telemetry Bridge)**, and a **17-Layer Celestial Apex Interactive Web Cockpit**.
+An industrial-grade, deterministic automotive cockpit and microkernel simulation built with **C++ (Multi-Threaded RTOS Core)**, **Python (Socket IPC & Telemetry Bridge)**, and a **18-Layer Eterna Apex Interactive Web Cockpit**.
 
 ---
 
@@ -9,14 +9,14 @@ An industrial-grade, deterministic automotive cockpit and microkernel simulation
 ```mermaid
 graph LR
     A[C++ RTOS Core<br/>Multi-Threaded Kernel] -->|Socket IPC & CSV| B[Python Telemetry Server<br/>UltraQNXHandler :8080]
-    B -->|Real-Time Stream| C[17-Layer Celestial Apex QNX 8.0 Cockpit :8000]
+    B -->|Real-Time Stream| C[18-Layer Eterna Apex QNX 8.0 Cockpit :8000]
     C -->|Control & Faults| B
     B -->|Deterministic Commands| A
 ```
 
 ---
 
-## ⚡ 17-Layer Celestial Apex Enterprise & Safety Stack
+## ⚡ 18-Layer Eterna Apex Enterprise & Safety Stack
 
 1. **Deterministic C++ Microkernel Core & Socket IPC**
    * Sub-10µs deterministic latency with live **RTOS Jitter Oscilloscope**.
