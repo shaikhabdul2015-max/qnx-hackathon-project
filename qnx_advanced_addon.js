@@ -1866,3 +1866,50 @@ document.addEventListener("DOMContentLoaded", () => {
         if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("30 layer QNX 8.0 Platinum Monarch flagship verification complete.")); }
     };
 });
+
+// --- LAYER 31 (CHRONOS): WIRELESS ORBITAL POWER BEAMING & +10s FUTURE LOOKAHEAD ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-beam")) return;
+    const l31 = document.createElement("div");
+    l31.style.cssText = "width:92%;max-width:800px;margin:15px auto 165px auto;padding:14px;background:#0f172a;border:1px solid #38bdf8;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 98px rgba(56,189,248,0.5);";
+    l31.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#38bdf8;">⏳ LAYER 31 (CHRONOS): ORBITAL WIRELESS POWER & +10s FUTURE LOOKAHEAD</strong>
+            <div>
+                <button id="btn-beam" style="background:#0284c7;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">🛰️ BEAM POWER</button>
+                <button id="btn-fut" style="background:#9333ea;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">⏩ +10s LOOKAHEAD</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px;text-align:left;">
+            <div style="flex:1.2;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="margin-bottom:5px;"><b>🛰️ WIRELESS BEAM:</b> <span id="beam-stat" style="color:#4ade80;">RECTENNA STANDBY (45kW LOCK READY)</span></div>
+                <div style="margin-bottom:5px;"><b>⏩ CHRONOS TWIN:</b> <span id="fut-stat" style="color:#38bdf8;">REAL-TIME +2.0s HORIZON ACTIVE</span></div>
+                <div><b>👑 CHRONOS TIER:</b> <span id="chr-tier" style="color:#facc15;">31-LAYER QNX 8.0 CHRONOS APEX</span></div>
+            </div>
+            <div style="flex:1;min-width:220px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;text-align:center;">
+                <div style="color:#94a3b8;font-size:10px;margin-bottom:4px;">CHRONOS ARCHITECTURE STACK</div>
+                <div style="font-size:14px;font-weight:bold;color:#38bdf8;">31 / 31 LAYERS ONLINE</div>
+                <div style="font-size:10px;color:#4ade80;margin-top:4px;">SUPREME DETERMINISTIC OS</div>
+            </div>
+        </div>`;
+    document.body.appendChild(l31);
+
+    document.querySelectorAll("button").forEach(b => { if (b.innerText.includes("L30")) b.innerText = "⬇️ L31"; });
+
+    const logs = document.getElementById("kernel-logs");
+
+    document.getElementById("btn-beam").onclick = () => {
+        const bs = document.getElementById("beam-stat");
+        bs.innerText = "ORBITAL BEAM LOCKED: +45.6 kW IN-MOTION!"; bs.style.color = "#22d3ee";
+        if (logs) { logs.innerHTML += `<div style="color:#38bdf8;">[BEAM_31] Roof rectenna coupled to orbital power relay (+45.6kW continuous).</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Orbital wireless power beam locked at 45 kilowatts.")); }
+        setTimeout(() => { bs.innerText = "RECTENNA STANDBY (45kW LOCK READY)"; bs.style.color = "#4ade80"; }, 4000);
+    };
+
+    document.getElementById("btn-fut").onclick = () => {
+        const fs = document.getElementById("fut-stat");
+        fs.innerText = "+10.0s FUTURE HORIZON: 0 HAZARDS!"; fs.style.color = "#c084fc";
+        if (logs) { logs.innerHTML += `<div style="color:#c084fc;">[CHRONOS] 100x accelerated physics twin simulated +10s trajectory safely.</div>`; logs.scrollTop = logs.scrollHeight; }
+        setTimeout(() => { fs.innerText = "REAL-TIME +2.0s HORIZON ACTIVE"; fs.style.color = "#38bdf8"; }, 4000);
+    };
+});
