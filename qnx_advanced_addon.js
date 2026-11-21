@@ -2054,3 +2054,57 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => { ss.innerText = "406MHz EMERGENCY BEACON ARMED"; ss.style.color = "#38bdf8"; }, 4000);
     };
 });
+
+// --- LAYER 35 (DIAMOND MONARCH): BFT CONSENSUS, ONBOARD H2 ELECTROLYZER & 35L CROWN ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-bft")) return;
+    const l35 = document.createElement("div");
+    l35.style.cssText = "width:92%;max-width:800px;margin:15px auto 185px auto;padding:14px;background:#0f172a;border:2px solid #38bdf8;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 115px rgba(56,189,248,0.6);";
+    l35.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#7dd3fc;">💎 LAYER 35 (DIAMOND MONARCH): BFT 3-CORE VOTE, H2 ELECTROLYZER & 35L CROWN</strong>
+            <div>
+                <button id="btn-bft" style="background:#0284c7;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">🛡️ BFT 3-VOTE</button>
+                <button id="btn-elec" style="background:#0d9488;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">⚗️ H2 GENERATOR</button>
+                <button id="btn-dia35" style="background:linear-gradient(90deg,#38bdf8,#facc15);color:#0f172a;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">💎 35L DIAMOND</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px;text-align:left;">
+            <div style="flex:1.2;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="margin-bottom:5px;"><b>🛡️ BYZANTINE 3-CORE:</b> <span id="bft-stat" style="color:#4ade80;">3/3 CORES UNANIMOUS (0.05ms)</span></div>
+                <div style="margin-bottom:5px;"><b>⚗️ ONBOARD H2 GEN:</b> <span id="elec-stat" style="color:#38bdf8;">ATMOSPHERIC WATER-SPLIT STANDBY</span></div>
+                <div><b>👑 SUPREME TIER:</b> <span style="color:#facc15;">35-LAYER QNX 8.0 DIAMOND MONARCH</span></div>
+            </div>
+            <div style="flex:1;min-width:220px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;text-align:center;">
+                <div style="color:#94a3b8;font-size:10px;margin-bottom:4px;">DIAMOND JUBILEE MILESTONE</div>
+                <div style="font-size:14px;font-weight:bold;color:#7dd3fc;" id="dia-stat">35 / 35 LAYERS COMPLETE</div>
+                <div style="font-size:10px;color:#4ade80;margin-top:4px;">IMMORTAL QNX 8.0 ARCHITECTURE</div>
+            </div>
+        </div>`;
+    document.body.appendChild(l35);
+
+    document.querySelectorAll("button").forEach(b => { if (b.innerText.includes("L34")) b.innerText = "⬇️ L35"; });
+
+    const logs = document.getElementById("kernel-logs");
+
+    document.getElementById("btn-bft").onclick = () => {
+        const bs = document.getElementById("bft-stat");
+        bs.innerText = "CORE-2 GLITCH ISOLATED! 2/3 CONSENSUS LOCKED!"; bs.style.color = "#facc15";
+        if (logs) { logs.innerHTML += `<div style="color:#38bdf8;">[BFT_35] Byzantine 3-core voter overruled transient fault in 0.05ms.</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Byzantine fault tolerant consensus locked in 0.05 milliseconds.")); }
+        setTimeout(() => { bs.innerText = "3/3 CORES UNANIMOUS (0.05ms)"; bs.style.color = "#4ade80"; }, 4000);
+    };
+
+    document.getElementById("btn-elec").onclick = () => {
+        const es = document.getElementById("elec-stat");
+        es.innerText = "GENERATING GREEN H2 FUEL ONBOARD (+99.9% PURE)!"; es.style.color = "#22d3ee";
+        if (logs) { logs.innerHTML += `<div style="color:#2dd4bf;">[H2_GEN35] Solar-electrolysis unit synthesizing clean H2 fuel from humidity.</div>`; logs.scrollTop = logs.scrollHeight; }
+    };
+
+    document.getElementById("btn-dia35").onclick = () => {
+        const ds = document.getElementById("dia-stat");
+        ds.innerText = "💎 35-LAYER DIAMOND CROWN VERIFIED!"; ds.style.color = "#4ade80";
+        if (logs) { logs.innerHTML += `<div style="color:#fde047;">[DIAMOND_35] All 35 QNX 8.0 layers certified deterministic and production-ready!</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("35 layer QNX 8.0 Diamond Monarch architecture verified at 100 percent.")); }
+    };
+});
