@@ -2108,3 +2108,51 @@ document.addEventListener("DOMContentLoaded", () => {
         if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("35 layer QNX 8.0 Diamond Monarch architecture verified at 100 percent.")); }
     };
 });
+
+// --- LAYER 36 (OBSIDIAN): SELF-HEALING CANOPY GLASS & LIVE 36-LAYER SEARCH FILTER ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-glass36")) return;
+    const l36 = document.createElement("div");
+    l36.style.cssText = "width:92%;max-width:800px;margin:15px auto 190px auto;padding:14px;background:#0f172a;border:1px solid #94a3b8;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 120px rgba(148,163,184,0.55);";
+    l36.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#f1f5f9;">🖤 LAYER 36 (OBSIDIAN): SELF-HEALING GLASS CANOPY & LIVE LAYER SEARCH</strong>
+            <div>
+                <button id="btn-glass36" style="background:#475569;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">🪟 HEAL GLASS</button>
+                <input id="layer-search" placeholder="🔍 Filter 36 Layers..." style="background:#020617;color:#38bdf8;border:1px solid #38bdf8;padding:4px 8px;border-radius:4px;font-size:11px;width:145px;font-family:monospace;" />
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px;text-align:left;">
+            <div style="flex:1.2;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="margin-bottom:5px;"><b>🪟 CAPILLARY CANOPY:</b> <span id="glass36-stat" style="color:#4ade80;">GORILLA-ARMOR INTACT (0 STRESS)</span></div>
+                <div style="margin-bottom:5px;"><b>🔍 SMART INSPECTOR:</b> <span style="color:#38bdf8;">INSTANT 36-LAYER KEYWORD FILTER ON</span></div>
+                <div><b>👑 OBSIDIAN TIER:</b> <span style="color:#facc15;">36-LAYER QNX 8.0 OBSIDIAN SOVEREIGN</span></div>
+            </div>
+            <div style="flex:1;min-width:220px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;text-align:center;">
+                <div style="color:#94a3b8;font-size:10px;margin-bottom:4px;">OBSIDIAN ARCHITECTURE STACK</div>
+                <div style="font-size:14px;font-weight:bold;color:#f1f5f9;">36 / 36 LAYERS ONLINE</div>
+                <div style="font-size:10px;color:#4ade80;margin-top:4px;">SUPREME DETERMINISTIC CORE</div>
+            </div>
+        </div>`;
+    document.body.appendChild(l36);
+
+    document.querySelectorAll("button").forEach(b => { if (b.innerText.includes("L35")) b.innerText = "⬇️ L36"; });
+
+    const logs = document.getElementById("kernel-logs");
+
+    document.getElementById("btn-glass36").onclick = () => {
+        const gs = document.getElementById("glass36-stat");
+        gs.innerText = "MICRO-CRACK SEALED IN 3.0s (100% CLARITY)!"; gs.style.color = "#38bdf8";
+        if (logs) { logs.innerHTML += `<div style="color:#cbd5e1;">[GLASS_36] Capillary resin polymer healed windshield stone-chip in 3.0s.</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Self healing glass canopy repaired micro fracture.")); }
+        setTimeout(() => { gs.innerText = "GORILLA-ARMOR INTACT (0 STRESS)"; gs.style.color = "#4ade80"; }, 4000);
+    };
+
+    document.getElementById("layer-search").oninput = (e) => {
+        const q = e.target.value.toLowerCase();
+        document.querySelectorAll("body > div").forEach(div => {
+            if (div.contains(e.target) || div.style.position === "fixed") return;
+            div.style.display = (!q || div.innerText.toLowerCase().includes(q)) ? "" : "none";
+        });
+    };
+});
