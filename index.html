@@ -1,108 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QNX 8.0 Autonomous AI Cockpit</title>
-    <style>
-        body { font-family: sans-serif; background: #060913; color: #e2e8f0; margin: 0; padding: 12px; text-align: center; }
-        .header { background: linear-gradient(135deg, #0f172a, #1e1b4b); padding: 12px; border-radius: 12px; border: 1px solid #38bdf8; margin-bottom: 12px; }
-        .header h2 { margin: 0; color: #38bdf8; font-size: 18px; }
-        .badge { background: #10b981; color: #060913; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: bold; }
-        .conn-bar { display: flex; gap: 6px; max-width: 450px; margin: 0 auto 12px auto; }
-        input { flex: 1; padding: 8px; border-radius: 8px; border: 1px solid #334155; background: #1e293b; color: white; font-size: 11px; }
-        .btn-conn { padding: 8px 14px; border-radius: 8px; border: none; background: #38bdf8; color: #060913; font-weight: bold; }
-        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; max-width: 450px; margin: 0 auto 10px auto; }
-        .card { background: #111827; padding: 10px 4px; border-radius: 10px; border: 1px solid #1f2937; }
-        .value { font-size: 20px; font-weight: bold; margin: 4px 0; color: #f8fafc; }
-        .label { color: #94a3b8; font-size: 9px; text-transform: uppercase; }
-        .chart-box { background: #111827; padding: 8px; border-radius: 10px; border: 1px solid #1f2937; max-width: 434px; margin: 0 auto 10px auto; }
-        canvas { width: 100%; height: 75px; }
-        .controls { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; max-width: 450px; margin: 0 auto 10px auto; }
-        .ctrl-btn { padding: 10px 2px; border-radius: 8px; border: none; font-weight: bold; font-size: 10px; color: white; }
-        .eco { background: #059669; } .sport { background: #d97706; } .stop { background: #dc2626; } .bb { background: #4f46e5; }
-        .ai-box { padding: 12px; border-radius: 10px; font-size: 12px; font-weight: bold; max-width: 426px; margin: 0 auto; text-align: left; border-left: 5px solid; }
-        .NORMAL { background: #064e3b; color: #a7f3d0; border-color: #10b981; }
-        .WARNING { background: #78350f; color: #fde68a; border-color: #f59e0b; }
-        .CRITICAL { background: #7f1d1d; color: #fecaca; border-color: #ef4444; }
-        #bbModal { display:none; background:#0f172a; border:1px solid #4f46e5; padding:10px; border-radius:10px; max-width:430px; margin:10px auto; text-align:left; font-family:monospace; font-size:11px; color:#a5b4fc; white-space:pre-line; }
-    </style>
-</head>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QNX 8.0 Sensor Fusion Cockpit</title>
+<style>
+body{font-family:sans-serif;background:#050811;color:#e2e8f0;margin:0;padding:10px;text-align:center}
+.header{background:linear-gradient(135deg,#0f172a,#1e1b4b);padding:10px;border-radius:12px;border:1px solid #38bdf8;margin-bottom:10px}
+.header h2{margin:0;color:#38bdf8;font-size:16px}
+.badge{background:#10b981;color:#050811;padding:2px 6px;border-radius:4px;font-size:9px;font-weight:bold}
+.conn-bar{display:flex;gap:6px;max-width:460px;margin:0 auto 10px auto}
+input{flex:1;padding:8px;border-radius:8px;border:1px solid #334155;background:#1e293b;color:white;font-size:11px}
+.btn-conn{padding:8px 14px;border-radius:8px;border:none;background:#38bdf8;color:#050811;font-weight:bold}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;max-width:460px;margin:0 auto 10px auto}
+.card{background:#111827;padding:8px 4px;border-radius:10px;border:1px solid #1f2937}
+.value{font-size:18px;font-weight:bold;margin:3px 0;color:#f8fafc}
+.label{color:#94a3b8;font-size:8px;text-transform:uppercase}
+.visuals{display:grid;grid-template-columns:2fr 1fr;gap:8px;max-width:460px;margin:0 auto 10px auto}
+.box{background:#111827;padding:8px;border-radius:10px;border:1px solid #1f2937}
+canvas{width:100%;height:85px}
+.controls{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;max-width:460px;margin:0 auto 10px auto}
+.ctrl-btn{padding:10px 2px;border-radius:8px;border:none;font-weight:bold;font-size:9px;color:white}
+.eco{background:#059669}.sport{background:#d97706}.stop{background:#dc2626}.bb{background:#4f46e5}.flt{background:#9333ea}
+.ai-box{padding:10px;border-radius:10px;font-size:11px;font-weight:bold;max-width:438px;margin:0 auto;text-align:left;border-left:5px solid}
+.NORMAL{background:#064e3b;color:#a7f3d0;border-color:#10b981}.WARNING{background:#78350f;color:#fde68a;border-color:#f59e0b}.CRITICAL{background:#7f1d1d;color:#fecaca;border-color:#ef4444}
+#bbModal{display:none;background:#0f172a;border:1px solid #4f46e5;padding:8px;border-radius:10px;max-width:440px;margin:8px auto;text-align:left;font-family:monospace;font-size:10px;color:#a5b4fc;white-space:pre-line}
+</style></head>
 <body>
-    <div class="header">
-        <h2>QNX 8.0 AUTONOMOUS AI COCKPIT <span class="badge">C++ IPC LIVE</span></h2>
-        <div style="font-size: 10px; color: #94a3b8; margin-top: 3px;">ADAS Collision Avoidance • Deterministic RTOS • Black-Box</div>
-    </div>
-    <div class="conn-bar">
-        <input type="text" id="baseUrl" value="https://github.dev">
-        <button class="btn-conn" onclick="startSystem()">LINK</button>
-    </div>
-    <div class="grid">
-        <div class="card"><div class="label">SPEED</div><div class="value" id="speed">--</div><div class="label">km/h</div></div>
-        <div class="card"><div class="label">ENGINE TEMP</div><div class="value" id="temp">--</div><div class="label">°C</div></div>
-        <div class="card"><div class="label">ENGINE RPM</div><div class="value" id="rpm">--</div><div class="label">C++ Core</div></div>
-        <div class="card"><div class="label">RADAR DIST</div><div class="value" id="radar">--</div><div class="label">Meters (ADAS)</div></div>
-        <div class="card"><div class="label">RTOS LATENCY</div><div class="value" id="lat">--</div><div class="label">Microseconds</div></div>
-        <div class="card"><div class="label">BATTERY</div><div class="value" id="battery">--</div><div class="label">Volts</div></div>
-    </div>
-    <div class="chart-box">
-        <div class="label" style="text-align:left; margin-bottom:4px;">REAL-TIME TELEMETRY WAVEFORM</div>
-        <canvas id="liveChart" width="400" height="75"></canvas>
-    </div>
-    <div class="controls">
-        <button class="ctrl-btn eco" onclick="sendCommand('ECO')">🌿 ECO</button>
-        <button class="ctrl-btn sport" onclick="sendCommand('SPORT')">🔥 SPORT</button>
-        <button class="ctrl-btn stop" onclick="sendCommand('EMERGENCY_STOP')">🛑 E-BRAKE</button>
-        <button class="ctrl-btn bb" onclick="toggleBlackbox()">📟 LOGS</button><button class="ctrl-btn stop" style="background:#9333ea" onclick="sendCommand('INJECT_FAULT')">⚡ FAULT</button>
-    </div>
-    <div id="aiBox" class="ai-box NORMAL">🤖 <b>QNX C++ & Edge AI:</b> Tap LINK to connect...</div>
-    <div id="bbModal"></div>
-    <script>
-        let timer = null, speedData = [], lastSpoken = "";
-        function getBase() { return document.getElementById('baseUrl').value.trim().replace('/telemetry', '').replace(/\/$/, ''); }
-        function startSystem() { if (timer) clearInterval(timer); fetchTelemetry(); timer = setInterval(fetchTelemetry, 1200); }
-        async function sendCommand(mode) {
-            await fetch(`${getBase()}/control`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ mode }) });
-            speak(`Switching QNX RTOS to ${mode.replace('_', ' ')} mode.`);
-        }
-        async function toggleBlackbox() {
-            const box = document.getElementById('bbModal');
-            if (box.style.display === 'block') { box.style.display = 'none'; return; }
-            const res = await fetch(`${getBase()}/blackbox`);
-            box.innerText = "=== QNX C++ BLACK-BOX RECORDER (RPM, RADAR, LATENCY) ===\n" + await res.text();
-            box.style.display = 'block';
-        }
-        function speak(text) {
-            if ('speechSynthesis' in window && lastSpoken !== text) {
-                lastSpoken = text;
-                window.speechSynthesis.speak(new SpeechSynthesisUtterance(text));
-            }
-        }
-        async function fetchTelemetry() {
-            try {
-                const res = await fetch(`${getBase()}/telemetry`);
-                const d = await res.json();
-                document.getElementById('speed').innerText = d.speed_kmh;
-                document.getElementById('temp').innerText = d.engine_temp_c;
-                document.getElementById('rpm').innerText = d.rpm;
-                document.getElementById('radar').innerText = d.radar_m + "m";
-                document.getElementById('lat').innerText = d.latency_us + "µs";
-                document.getElementById('battery').innerText = d.battery_v;
-                const aiBox = document.getElementById('aiBox');
-                aiBox.className = "ai-box " + d.status;
-                aiBox.innerHTML = `🤖 <b>[${d.mode}] QNX AI:</b> ${d.ai_insight}`;
-                if (d.status === "CRITICAL") speak(d.ai_insight);
-                speedData.push(d.speed_kmh);
-                if (speedData.length > 15) speedData.shift();
-                const c = document.getElementById('liveChart'), ctx = c.getContext('2d');
-                ctx.clearRect(0, 0, c.width, c.height); ctx.strokeStyle = '#38bdf8'; ctx.lineWidth = 3; ctx.beginPath();
-                speedData.forEach((v, i) => { const x = i * (c.width / Math.max(1, speedData.length - 1)), y = c.height - ((v / 160) * c.height); i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y); });
-                ctx.stroke();
-            } catch (e) {
-                document.getElementById('aiBox').className = "ai-box CRITICAL";
-                document.getElementById('aiBox').innerHTML = "❌ Connection Lost. Check Port 8080.";
-            }
-        }
-    </script>
-</body>
-</html>
+<div class="header"><h2>QNX 8.0 SENSOR FUSION COCKPIT <span class="badge">SOCKET IPC</span></h2><div style="font-size:9px;color:#94a3b8;margin-top:2px">Multi-Threaded C++ Kernel • LiDAR + Radar Sonar • HAM Self-Healing</div></div>
+<div class="conn-bar"><input type="text" id="baseUrl" value="https://github.dev"><button class="btn-conn" onclick="startSystem()">LINK</button></div>
+<div class="grid">
+<div class="card"><div class="label">SPEED</div><div class="value" id="speed">--</div><div class="label">km/h</div></div>
+<div class="card"><div class="label">ENGINE TEMP</div><div class="value" id="temp">--</div><div class="label">°C</div></div>
+<div class="card"><div class="label">C++ RPM</div><div class="value" id="rpm">--</div><div class="label">Socket IPC</div></div>
+<div class="card"><div class="label">RADAR / LIDAR</div><div class="value" id="radar">--</div><div class="label">Fused Meters</div></div>
+<div class="card"><div class="label">RTOS LATENCY</div><div class="value" id="lat">--</div><div class="label">Microseconds</div></div>
+<div class="card"><div class="label">BATTERY</div><div class="value" id="battery">--</div><div class="label">Volts</div></div>
+</div>
+<div class="visuals"><div class="box"><div class="label" style="text-align:left">SPEED TELEMETRY WAVE</div><canvas id="liveChart" width="250" height="85"></canvas></div><div class="box"><div class="label">ADAS SONAR</div><canvas id="radarCanvas" width="110" height="85"></canvas></div></div>
+<div class="controls"><button class="ctrl-btn eco" onclick="sendCommand('ECO')">🌿 ECO</button><button class="ctrl-btn sport" onclick="sendCommand('SPORT')">🔥 SPORT</button><button class="ctrl-btn stop" onclick="sendCommand('EMERGENCY_STOP')">🛑 BRAKE</button><button class="ctrl-btn bb" onclick="toggleBlackbox()">📟 LOGS</button><button class="ctrl-btn flt" onclick="sendCommand('INJECT_FAULT')">⚡ FAULT</button></div>
+<div id="aiBox" class="ai-box NORMAL">🤖 <b>QNX Socket IPC:</b> Tap LINK to connect...</div><div id="bbModal"></div>
+<script>
+let timer=null,speedData=[],lastSpoken="",angle=0;
+function getBase(){return document.getElementById('baseUrl').value.trim().replace('/telemetry','').replace(/\/$/,'')}
+function startSystem(){if(timer)clearInterval(timer);fetchTelemetry();timer=setInterval(fetchTelemetry,1000)}
+async function sendCommand(m){await fetch(`${getBase()}/control`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({mode:m})});speak(`Executing ${m.replace('_',' ')} on QNX kernel.`)}
+async function toggleBlackbox(){const b=document.getElementById('bbModal');if(b.style.display==='block'){b.style.display='none';return}const r=await fetch(`${getBase()}/blackbox`);b.innerText="=== QNX C++ MULTI-THREADED BLACK-BOX LOGS ===\n"+await r.text();b.style.display='block'}
+function speak(t){if('speechSynthesis'in window&&lastSpoken!==t){lastSpoken=t;window.speechSynthesis.speak(new SpeechSynthesisUtterance(t))}}
+function drawSonar(d){const c=document.getElementById('radarCanvas'),x=c.getContext('2d'),cx=55,cy=42,r=36;x.clearRect(0,0,110,85);x.strokeStyle='#10b981';x.lineWidth=1;x.beginPath();x.arc(cx,cy,r,0,6.28);x.stroke();x.beginPath();x.arc(cx,cy,18,0,6.28);x.stroke();angle+=0.4;x.beginPath();x.moveTo(cx,cy);x.lineTo(cx+Math.cos(angle)*r,cy+Math.sin(angle)*r);x.stroke();const o=Math.min(32,(d/100)*r);x.fillStyle=d<16?'#ef4444':'#38bdf8';x.beginPath();x.arc(cx+Math.cos(angle-0.5)*o,cy+Math.sin(angle-0.5)*o,4,0,6.28);x.fill()}
+async function fetchTelemetry(){try{const r=await fetch(`${getBase()}/telemetry`),d=await r.json();document.getElementById('speed').innerText=d.speed_kmh;document.getElementById('temp').innerText=d.engine_temp_c;document.getElementById('rpm').innerText=d.rpm;document.getElementById('radar').innerText=`${d.radar_m}/${d.lidar_m}m`;document.getElementById('lat').innerText=d.latency_us+"µs";document.getElementById('battery').innerText=d.battery_v;drawSonar(d.radar_m);const a=document.getElementById('aiBox');a.className="ai-box "+d.status;a.innerHTML=`🤖 <b>[${d.mode}] QNX IPC:</b> ${d.ai_insight}`;if(d.status==="CRITICAL")speak(d.ai_insight);speedData.push(d.speed_kmh);if(speedData.length>15)speedData.shift();const c=document.getElementById('liveChart'),x=c.getContext('2d');x.clearRect(0,0,250,85);x.strokeStyle='#38bdf8';x.lineWidth=3;x.beginPath();speedData.forEach((v,i)=>{const px=i*(250/Math.max(1,speedData.length-1)),py=85-((v/165)*85);i===0?x.moveTo(px,py):x.lineTo(px,py)});x.stroke()}catch(e){document.getElementById('aiBox').className="ai-box CRITICAL";document.getElementById('aiBox').innerHTML="❌ Socket Disconnected."}}
+</script></body></html>
