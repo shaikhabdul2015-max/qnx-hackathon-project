@@ -1812,3 +1812,57 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => { ms.innerText = "EDDY-CURRENT ZERO-WEAR READY"; ms.style.color = "#38bdf8"; }, 4000);
     };
 });
+
+// --- LAYER 30 (PLATINUM MONARCH): 90-DEG CRAB-WALK PARK, FEDERATED AI & 30L CROWN ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-crab")) return;
+    const l30 = document.createElement("div");
+    l30.style.cssText = "width:92%;max-width:800px;margin:15px auto 160px auto;padding:14px;background:#0f172a;border:2px solid #e2e8f0;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 95px rgba(226,232,240,0.45);";
+    l30.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#f8fafc;">👑 LAYER 30 (PLATINUM MONARCH): 90° CRAB-WALK, FEDERATED AI & 30L CROWN</strong>
+            <div>
+                <button id="btn-crab" style="background:#0284c7;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">🦀 CRAB-WALK 90°</button>
+                <button id="btn-fed" style="background:#7c3aed;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">🧠 FEDERATED AI</button>
+                <button id="btn-plat30" style="background:linear-gradient(90deg,#e2e8f0,#38bdf8);color:#0f172a;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">🏆 30L PLATINUM</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px;text-align:left;">
+            <div style="flex:1.2;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="margin-bottom:5px;"><b>🦀 OMNI-WHEEL DRIVE:</b> <span id="crab-stat" style="color:#4ade80;">4-WHEEL STEER READY (0m TURN RADIUS)</span></div>
+                <div style="margin-bottom:5px;"><b>🧠 FEDERATED EDGE AI:</b> <span id="fed-stat" style="color:#38bdf8;">GLOBAL WEIGHTS SYNCED (0 DATA LEAK)</span></div>
+                <div><b>👑 MONARCH EDITION:</b> <span style="color:#facc15;">30-LAYER QNX 8.0 PLATINUM MONARCH</span></div>
+            </div>
+            <div style="flex:1;min-width:220px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;text-align:center;">
+                <div style="color:#94a3b8;font-size:10px;margin-bottom:4px;">PLATINUM MONARCH MILESTONE</div>
+                <div style="font-size:14px;font-weight:bold;color:#f8fafc;" id="plat-stat">30 / 30 LAYERS COMPLETE</div>
+                <div style="font-size:10px;color:#4ade80;margin-top:4px;">LEGENDARY QNX 8.0 ARCHITECTURE</div>
+            </div>
+        </div>`;
+    document.body.appendChild(l30);
+
+    document.querySelectorAll("button").forEach(b => { if (b.innerText.includes("L29")) b.innerText = "⬇️ L30"; });
+
+    const logs = document.getElementById("kernel-logs");
+
+    document.getElementById("btn-crab").onclick = () => {
+        const cs = document.getElementById("crab-stat");
+        cs.innerText = "WHEELS ROTATED 90°! LATERAL CRAB-PARK!"; cs.style.color = "#22d3ee";
+        if (logs) { logs.innerHTML += `<div style="color:#38bdf8;">[OMNI_30] All 4 hub-motors pivoted 90 degrees for zero-radius lateral crab-parking.</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("90 degree crab walk parking mode engaged.")); }
+        setTimeout(() => { cs.innerText = "4-WHEEL STEER READY (0m TURN RADIUS)"; cs.style.color = "#4ade80"; }, 4000);
+    };
+
+    document.getElementById("btn-fed").onclick = () => {
+        const fs = document.getElementById("fed-stat");
+        fs.innerText = "NEURAL MODEL UPGRADED VIA EDGE SWARM!"; fs.style.color = "#c084fc";
+        if (logs) { logs.innerHTML += `<div style="color:#c084fc;">[FED_30] Federated learning merged global cornering weights without raw data upload.</div>`; logs.scrollTop = logs.scrollHeight; }
+    };
+
+    document.getElementById("btn-plat30").onclick = () => {
+        const ps = document.getElementById("plat-stat");
+        ps.innerText = "🏆 30-LAYER PLATINUM MONARCH LOCKED!"; ps.style.color = "#4ade80";
+        if (logs) { logs.innerHTML += `<div style="color:#f8fafc;">[MONARCH_30] Complete 30-Layer QNX 8.0 Platinum Monarch stack verified 100%!</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("30 layer QNX 8.0 Platinum Monarch flagship verification complete.")); }
+    };
+});
