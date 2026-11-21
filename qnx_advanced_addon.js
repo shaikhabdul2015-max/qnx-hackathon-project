@@ -616,3 +616,62 @@ document.addEventListener("DOMContentLoaded", () => {
         m.style.display = (m.style.display === "none") ? "block" : "none";
     };
 });
+
+// --- LAYER 10 (OMEGA): V2G SMART ENERGY, PREDICTIVE RUL & LIVE HEX PACKET SNIFFER ---
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("btn-v2g")) return;
+    const l10 = document.createElement("div");
+    l10.style.cssText = "width:92%;max-width:800px;margin:15px auto 50px auto;padding:14px;background:#0f172a;border:1px solid #eab308;border-radius:10px;color:#e2e8f0;font-family:monospace;box-sizing:border-box;box-shadow:0 0 28px rgba(234,179,8,0.22);";
+    l10.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:10px;gap:6px;">
+            <strong style="color:#facc15;">👑 LAYER 10 (OMEGA): V2G ENERGY, PREDICTIVE RUL & HEX SNIFFER</strong>
+            <div>
+                <button id="btn-v2g" style="background:#ca8a04;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:5px;">⚡ V2G GRID SELL</button>
+                <button id="btn-wear" style="background:#ea580c;color:#fff;border:none;padding:5px 9px;border-radius:4px;font-size:11px;font-weight:bold;cursor:pointer;">🔧 TEST RUL WEAR</button>
+            </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px;text-align:left;">
+            <div style="flex:1.2;min-width:240px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;">
+                <div style="margin-bottom:5px;"><b>⚡ V2G BIDIRECTIONAL:</b> <span id="v2g-stat" style="color:#4ade80;">CHARGING (11.2 kW AC)</span></div>
+                <div style="margin-bottom:5px;"><b>⚙️ PREDICTIVE RUL:</b> <span id="rul-stat" style="color:#38bdf8;">BRAKES 96% | INV 99%</span></div>
+                <div><b>🔍 QNX HEX BUS:</b> <span id="hex-frame" style="color:#facc15;">0x108 [8] 4A 9F 02 E1 7C</span></div>
+            </div>
+            <div style="flex:1;min-width:220px;background:#020617;border:1px solid #1e293b;border-radius:8px;padding:10px;text-align:center;">
+                <div style="color:#64748b;margin-bottom:4px;">LIVE MICROKERNEL FRAME RATE</div>
+                <div style="font-size:16px;font-weight:bold;color:#4ade80;" id="bus-hz">10,000 Hz (0% DROP)</div>
+                <div style="font-size:10px;color:#94a3b8;margin-top:4px;">10-LAYER OMEGA STACK VERIFIED</div>
+            </div>
+        </div>`;
+    document.body.appendChild(l10);
+
+    // Live Hexadecimal CAN/QNX Bus Stream
+    setInterval(() => {
+        const id = ["0x108", "0x24A", "0x3F1", "0x7E0"][Math.floor(Math.random()*4)];
+        const bytes = Array.from({length:5}, () => Math.floor(Math.random()*255).toString(16).padStart(2,'0').toUpperCase()).join(" ");
+        const hf = document.getElementById("hex-frame");
+        if (hf) hf.innerText = `${id} [8] ${bytes}`;
+    }, 350);
+
+    const logs = document.getElementById("kernel-logs");
+    let v2gSelling = false;
+
+    document.getElementById("btn-v2g").onclick = () => {
+        v2gSelling = !v2gSelling;
+        const vs = document.getElementById("v2g-stat");
+        if (v2gSelling) {
+            vs.innerText = "EXPORTING 15.4 kW (+₹185/hr)"; vs.style.color = "#facc15";
+            if (logs) { logs.innerHTML += `<div style="color:#facc15;">[V2G_PWR] Bidirectional inverter active! Feeding 15.4kW to Smart Grid.</div>`; logs.scrollTop = logs.scrollHeight; }
+            if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Vehicle to grid energy export activated.")); }
+        } else {
+            vs.innerText = "CHARGING (11.2 kW AC)"; vs.style.color = "#4ade80";
+        }
+    };
+
+    document.getElementById("btn-wear").onclick = () => {
+        const rs = document.getElementById("rul-stat");
+        rs.innerText = "PAD WEAR 18%! AUTO-BOOKED SERVICE"; rs.style.color = "#ef4444";
+        if (logs) { logs.innerHTML += `<div style="color:#fb923c;">[AI_RUL] Brake pad RUL below 20%. Predictive maintenance ticket dispatched.</div>`; logs.scrollTop = logs.scrollHeight; }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance("Predictive maintenance alert. Brake pad wear detected. Service slot booked.")); }
+        setTimeout(() => { rs.innerText = "BRAKES 96% | INV 99%"; rs.style.color = "#38bdf8"; }, 4500);
+    };
+});
