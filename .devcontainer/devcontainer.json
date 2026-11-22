@@ -1,0 +1,15 @@
+{
+  "name": "QNX 8.0 Golden Jubilee Sovereign",
+  "portsAttributes": {
+    "8000": {
+      "label": "QNX 50-Layer Cockpit",
+      "visibility": "public",
+      "onAutoForward": "openBrowser"
+    },
+    "8765": {
+      "label": "QNX Socket IPC Bridge",
+      "visibility": "public"
+    }
+  },
+  "postAttachCommand": "./qnx_rtos_core > /dev/null 2>&1 & python3 qnx_vehicle_server.py > server.log 2>&1 & python3 -m http.server 8000 > web.log 2>&1 &"
+}
